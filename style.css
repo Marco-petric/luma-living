@@ -1,11 +1,12 @@
 /* ==========================================================================
    LUMA LIVING · SHARP SWISS ARCHITECTURAL EDITORIAL DESIGN SYSTEM
+   - Focus: Nachhaltige Tiny House Projektentwicklung & Co-Hosting Schweiz
    - Full-Screen 100vh Viewport Hero (NO MANUAL SCROLLING)
    - Dynamic Alternating Hero Background on reload (Chalet 1 / Chalet 2)
    - Visual Effect: Smooth Black & White to Full Color Animation
    - Top-Left Header: Pure Transparent Background, Crisp White Doppel-L & LUMA LIVING Text
-   - Brand Statement: High-Contrast Luxury Serif (Bodoni Moda / Didot) exactly as requested
-   - Slogan: Nachhaltig aus der Schweiz (Optimal Positioned)
+   - Brand Statement: High-Contrast Luxury Serif (Bodoni Moda / Didot)
+   - Slogan: Nachhaltig aus der Schweiz
    - Bottom Right: Impressum & Datenschutz Legal Links
    - Favicon: Black & White LL Logo
    - Navigation: CO-HOSTING · PROJEKTENTWICKLUNG · TEAM · FAQ & RECHT · KONTAKT
@@ -285,7 +286,7 @@ html, body {
   }
 }
 
-/* --- HERO STATEMENT (BODONI MODA HIGH-CONTRAST LUXURY SERIF AS IN USER SCREENSHOT) --- */
+/* --- HERO STATEMENT (BODONI MODA LUXURY SERIF) --- */
 @keyframes fadeInHeroBrand {
   0% {
     opacity: 0;
@@ -415,7 +416,7 @@ html, body {
   color: var(--text-primary);
   padding: 1.75rem 2rem 1.5rem 2rem;
   width: 100%;
-  max-width: 20rem;
+  max-width: 21rem;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-default);
   display: flex;
@@ -781,19 +782,20 @@ html, body {
 }
 
 /* ==========================================================================
-   TEAM VIEW (SHARP SWISS ARCHITECTURE STYLE)
+   2-PERSON FOUNDER TEAM GRID (SHARP SWISS ARCHITECTURE STYLE)
    ========================================================================== */
 
-.team-grid {
+.team-grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
+  gap: 2.5rem;
+  max-width: 54rem;
+  margin: 0 auto 4rem auto;
 }
 
 @media (min-width: 768px) {
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .team-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -806,7 +808,7 @@ html, body {
 
 .team-photo {
   width: 100%;
-  height: 280px;
+  height: 320px;
   object-fit: cover;
   background-color: var(--bg-surface-soft);
   filter: grayscale(15%);
@@ -818,12 +820,12 @@ html, body {
 }
 
 .team-info {
-  padding: 1.75rem 1.5rem;
+  padding: 2rem 1.75rem;
 }
 
 .team-name {
   font-family: var(--font-heading);
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
@@ -831,17 +833,17 @@ html, body {
 
 .team-role {
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin-bottom: 0.75rem;
 }
 
 .team-bio {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* ==========================================================================

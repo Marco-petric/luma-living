@@ -161,21 +161,21 @@ function initPitchGenerator() {
 
     const pitchTemplate = `Guten Tag ${name},
 
-Vielen Dank für Ihre Anfrage bezüglich Ihrer Liegenschaft (${propertyType}) in ${location}.
+Vielen Dank für Ihre Projektanfrage bezüglich (${propertyType}) in ${location}.
 
-Basierend auf aktuellen Schweizer Marktdaten erzielen Liegenschaften in ${location} im professionellen Co-Hosting Modell von LUMA LIVING durchschnittlich bis zu +45% mehr Nettoertrag als bei einer herkömmlichen Dauermiete.
+Als spezialisierter Schweizer Partner für nachhaltige Tiny House Projektentwicklung und rentables Co-Hosting analysieren wir gerne das genaue Standortpotenzial, die kantonale Baurechtssituation sowie die zu erwartende Rendite für Ihr Projekt in ${location}.
 
-Unser Schweizer Co-Hosting Leistungspaket umfasst:
-1. Vollständiges operatives Management (24/7 Gästekommunikation, Nuki Smart Check-in)
-2. 5-Sterne Housekeeping & Wäscheservice durch unser geschultes Reinigungsteam
-3. Tägliches Dynamic AI-Pricing für maximale Auslastung & Spitzenpreise
-4. Umfassender Schutz über Airbnb AirCover (bis 3 Mio. USD) und Kautionssystem
+Unser LUMA LIVING Leistungspaket:
+1. Machbarkeitsprüfung, kantonale Zonenabklärung & Baueingaben für Tiny Houses
+2. Ökologische Modulbauweise & schlüsselfertige Hospitality-Einrichtung
+3. Vollständiges operatives Co-Hosting (Dynamic AI Pricing, 24/7 Gästeservice, 5★-Reinigung)
+4. Umfassender Schutz über Airbnb AirCover (bis 3 Mio. USD)
 
-Wann passt Ihnen ein kurzes, 10-minütiges Kennenlerngespräch oder eine kostenlose Besichtigung vor Ort?
+Wann passt Ihnen ein kurzes, unverbindliches 15-minütiges Erstgespräch zur Potenzialanalyse?
 
 Freundliche Grüsse
-Ihr LUMA LIVING Hospitality Team Schweiz
-https://lumaliving.ch · contact@lumaliving.ch`;
+Marco Petric & das LUMA LIVING Gründerteam Schweiz
+https://lumaliving.ch · m27pema@gmail.com`;
 
     if (pitchOutput) {
       pitchOutput.value = pitchTemplate;
