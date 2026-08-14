@@ -174,7 +174,7 @@ Unser erprobtes LUMA LIVING Betreibermodell (Modell B):
 Wann passt Ihnen ein kurzes, unverbindliches 15-minütiges Gespräch in Sarnen oder vor Ort auf Ihrem Areal?
 
 Freundliche Grüsse
-Marco Petric & das LUMA LIVING Gründerteam
+Marco Petric, Tim Lubura & das LUMA LIVING Gründerteam
 Sarnen / Kanton Obwalden · m27pema@gmail.com`;
 
     if (pitchOutput) {
