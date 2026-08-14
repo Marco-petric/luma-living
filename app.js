@@ -161,21 +161,21 @@ function initPitchGenerator() {
 
     const pitchTemplate = `Guten Tag ${name},
 
-Vielen Dank für Ihre Projektanfrage bezüglich (${propertyType}) in ${location}.
+Vielen Dank für Ihre Anfrage bezüglich (${propertyType}) in ${location}.
 
-Als spezialisierter Schweizer Partner für nachhaltige Tiny House Projektentwicklung und rentables Co-Hosting analysieren wir gerne das genaue Standortpotenzial, die kantonale Baurechtssituation sowie die zu erwartende Rendite für Ihr Projekt in ${location}.
+Als Innerschweizer Gründerteam mit operativem Dienstleistungsbetrieb in Sarnen entwickeln und betreiben wir designorientierte Tiny Homes an touristischen Lagen im Kanton Obwalden.
 
-Unser LUMA LIVING Leistungspaket:
-1. Machbarkeitsprüfung, kantonale Zonenabklärung & Baueingaben für Tiny Houses
-2. Ökologische Modulbauweise & schlüsselfertige Hospitality-Einrichtung
-3. Vollständiges operatives Co-Hosting (Dynamic AI Pricing, 24/7 Gästeservice, 5★-Reinigung)
-4. Umfassender Schutz über Airbnb AirCover (bis 3 Mio. USD)
+Unser erprobtes LUMA LIVING Betreibermodell (Modell B):
+1. Zonenabklärung & Baurecht: Vorprüfung der Zonenkonformität (Art. 22/24b RPG, Campinggesetz OW)
+2. Wirtschaftlichkeit: Basisszenario CHF 235/Nacht, Break-even bereits bei 24.8% Auslastung (~90 Nächte/Jahr)
+3. 360° Betrieb & Housekeeping: Hauseigenes Reinigungsteam, 24/7 Gästeservice, Airbnb Superhost & Direktbuchungskanal
+4. Win-Win Partnerschaft: 25–35% Managementfee – der überwiegende Teil des Cashflows (~CHF 19'000+ EBITDA/Einheit) verbleibt bei Ihnen
 
-Wann passt Ihnen ein kurzes, unverbindliches 15-minütiges Erstgespräch zur Potenzialanalyse?
+Wann passt Ihnen ein kurzes, unverbindliches 15-minütiges Gespräch in Sarnen oder vor Ort auf Ihrem Areal?
 
 Freundliche Grüsse
-Marco Petric & das LUMA LIVING Gründerteam Schweiz
-https://lumaliving.ch · m27pema@gmail.com`;
+Marco Petric & das LUMA LIVING Gründerteam
+Sarnen / Kanton Obwalden · m27pema@gmail.com`;
 
     if (pitchOutput) {
       pitchOutput.value = pitchTemplate;
