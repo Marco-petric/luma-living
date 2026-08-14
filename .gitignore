@@ -1,0 +1,6 @@
+# Large binary / media files over GitHub limit
+*.mp4
+*.zip
+*.mov
+.DS_Store
+Thumbs.db

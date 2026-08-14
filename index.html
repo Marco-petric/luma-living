@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMA LIVING · Nachhaltig aus der Schweiz</title>
+  <meta name="description" content="LUMA LIVING – Professionelles Schweizer Co-Hosting Management & nachhaltige Projektentwicklung.">
+  
+  <!-- Favicon: Black & White LL Logo as Tab Icon -->
+  <link rel="icon" type="image/png" href="assets/logo-black.png">
+  <link rel="apple-touch-icon" href="assets/logo-black.png">
+
+  <!-- Google Fonts: Bodoni Moda (for logo mark), Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet (Sharp Swiss Architectural Style) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Instant Pre-render Alternating Background Script (Zero-Flicker on Reload) -->
+  <script>
+    (function() {
+      var heroImages = [
+        'assets/hero-chalet-1.jpg',
+        'assets/hero-chalet-2.jpg'
+      ];
+      var stored = localStorage.getItem('lumaliving_hero_img_idx');
+      var nextIdx = 0;
+      if (stored !== null) {
+        nextIdx = (parseInt(stored, 10) + 1) % heroImages.length;
+      }
+      localStorage.setItem('lumaliving_hero_img_idx', nextIdx.toString());
+      window.__LUMA_HERO_IMG__ = heroImages[nextIdx];
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HERO: 100VH FULLSCREEN EDITORIAL CANVAS (NO MANUAL SCROLLING)
+       ========================================================================== -->
+  <section class="editorial-hero" id="hero">
+    
+    <!-- Fullscreen Alternating Background (B&W to Color Transformation) -->
+    <img id="hero-dynamic-image" class="hero-bg-media" src="assets/hero-chalet-1.jpg" alt="Schweizer Chalet & Hospitality Portfolio" loading="eager">
+    <div class="hero-scrim-layer" aria-hidden="true"></div>
+
+    <!-- Apply chosen alternating image immediately before render -->
+    <script>
+      if (window.__LUMA_HERO_IMG__) {
+        document.getElementById('hero-dynamic-image').src = window.__LUMA_HERO_IMG__;
+      }
+    </script>
+
+    <!-- 1. TOP BAR: UNIFIED HEADER WITH TRANSPARENT WHITE LOGO LOCKUP -->
+    <header class="hero-top-bar">
+      
+      <!-- Top-Left Brand: Transparent Background, White Doppel-L & LUMA LIVING Text -->
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <!-- Top Right Header Navigation -->
+      <nav class="header-top-nav" aria-label="Hauptnavigation">
+        <button type="button" class="header-nav-link" data-open-view="cohosting">CO-HOSTING</button>
+        <button type="button" class="header-nav-link" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button type="button" class="header-nav-link" data-open-view="team">TEAM</button>
+        <button type="button" class="header-nav-link" data-open-view="faq">FAQ & RECHT</button>
+        <button type="button" class="header-nav-link" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <!-- 2. BRAND STATEMENT (CLEAN SANS-SERIF TYPOGRAPHY WITH PERFECT SLOGAN SPACING) -->
+    <div class="hero-brand-statement">
+      <h1 class="hero-brand-title">LUMA LIVING</h1>
+      <p class="hero-brand-tagline">Nachhaltig aus der Schweiz</p>
+    </div>
+
+    <!-- 3. RIGHT RAIL: SOCIAL ICONS -->
+    <aside class="hero-right-rail" aria-label="Social Media">
+      <a href="#" class="rail-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" class="rail-link" aria-label="Twitter">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      </a>
+      <a href="#" class="rail-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="#" class="rail-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </aside>
+
+    <!-- 4. BOTTOM STAGE: SHARP WHITE CARD & BOTTOM-RIGHT LEGAL LINKS -->
+    <div class="hero-bottom-stage">
+      
+      <!-- Portfolio White Card (Slides up on load) -->
+      <div class="hero-floating-card" data-open-view="cohosting" title="Klicken für Co-Hosting Erklärung">
+        <span class="card-tag">AKTUELLES</span>
+        <span class="card-date">PORTFOLIO 2026</span>
+        <p class="card-headline">
+          Wir verwalten und bauen nachhaltige, hochwertige Airbnb-Unterkünfte in der gesamten Schweiz.
+        </p>
+      </div>
+
+      <!-- Bottom-Right Legal Navigation (Impressum & Datenschutz) -->
+      <div class="hero-bottom-legal">
+        <button type="button" class="legal-nav-link" data-open-view="impressum">IMPRESSUM</button>
+        <span class="legal-sep">·</span>
+        <button type="button" class="legal-nav-link" data-open-view="datenschutz">DATENSCHUTZ</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button type="button" class="header-nav-link" data-open-view="hero">Startseite</button>
+    <button type="button" class="header-nav-link" data-open-view="cohosting">Co-Hosting</button>
+    <button type="button" class="header-nav-link" data-open-view="development">Projektentwicklung</button>
+    <button type="button" class="header-nav-link" data-open-view="team">Team</button>
+    <button type="button" class="header-nav-link" data-open-view="faq">FAQ & Recht</button>
+    <button type="button" class="header-nav-link" data-open-view="contact">Kontakt</button>
+    <button type="button" class="header-nav-link" data-open-view="impressum">Impressum</button>
+    <button type="button" class="header-nav-link" data-open-view="datenschutz">Datenschutz</button>
+    <div style="margin-top: auto;">
+      <button class="btn-editorial-primary" style="width: 100%;" data-open-lead-modal>Potenzialanalyse anfordern</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 1: CO-HOSTING VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-cohosting" role="dialog" aria-label="Co-Hosting Erklärung">
+    
+    <!-- EXACT SAME HEADER AS HOMEPAGE -->
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn active" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper">
+      
+      <!-- HERO TITLE BANNER: HIGH-RES LIVING ROOM PHOTO -->
+      <div class="page-title-hero">
+        <img class="page-hero-image" src="assets/services-living-room.jpg" alt="Schweizer Luxus Airbnb Wohnbereich und Interior Design">
+        <div class="page-hero-scrim"></div>
+        <div class="container">
+          <div class="page-hero-content">
+            <h1 class="page-hero-heading">Co-Hosting Management</h1>
+            <p class="page-hero-desc">
+              Wir übernehmen das vollständige operative Management Ihrer Schweizer Liegenschaft. Sie bleiben Eigentümer aller Mieteinnahmen und erzielen bis zu +45% Mehrertrag – bei 0 Stunden Eigenaufwand.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <!-- STEP BY STEP CO-HOSTING EXPLANATION GRID -->
+        <div style="margin-bottom: 2.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-primary); display: block; margin-bottom: 0.5rem;">6-STUFIGER PROZESS</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em;">Vollständiges 360° Management</h2>
+        </div>
+
+        <div class="sharp-grid-3">
+          
+          <!-- Step 1: Konzeption & Einrichtung -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 01 · SETUP</div>
+              <h3 class="sharp-card-title">Konzeption, Einrichtung & 3D-Fotos</h3>
+              <p class="sharp-card-text">
+                Wir beraten Sie bei stilvoller Möblierung, fertigen professionelle Weitwinkel- und 3D-Fotos an und erstellen verkaufsstarke Premium-Inserate auf Airbnb Superhost und Booking.com.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 2: Dynamic AI Pricing -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 02 · REVENUE</div>
+              <h3 class="sharp-card-title">Dynamic AI Pricing & Ertragssteuerung</h3>
+              <p class="sharp-card-text">
+                Tagesgenaue Algorithmen analysieren Nachfrage, Schweizer Messen, Events, Feiertage und Wettertrends, um maximale Auslastung zu Spitzenpreisen pro Nacht zu erzielen.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 3: 24/7 Gästekommunikation -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 03 · HOSPITALITY</div>
+              <h3 class="sharp-card-title">24/7 Gästeservice & Smart Access</h3>
+              <p class="sharp-card-text">
+                Mehrsprachiger Support mit Reaktionszeiten unter 10 Minuten. Schlüsselübergabe erfolgt kontaktlos und sicher via Nuki Smartlocks und digitalem Check-in Guide.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 4: 5-Sterne Reinigung -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 04 · HOUSEKEEPING</div>
+              <h3 class="sharp-card-title">5-Sterne Reinigung & Frische Wäsche</h3>
+              <p class="sharp-card-text">
+                Hauseigenes, geschultes Reinigungsteam garantiert lückenlose Hotel-Sauberkeit, frische Qualitätsbettwäsche, Nachfüllen von Verbrauchsgütern und lückenlose Zustandskontrolle.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 5: Swiss Legal & Kurtaxen -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 05 · RECHT & SICHERHEIT</div>
+              <h3 class="sharp-card-title">Swiss Legal, Meldewesen & Kurtaxen</h3>
+              <p class="sharp-card-text">
+                Wir übernehmen die kantonale Gästemeldung, rechnen Kurtaxen vorschriftsgemäss ab und sichern die Liegenschaft über das Airbnb AirCover-Programm (bis 3 Mio. USD) ab.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 6: Abrechnung & Auszahlung -->
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">PHASE 06 · AUSZAHLUNG</div>
+              <h3 class="sharp-card-title">Transparente Abrechnung & Dashboard</h3>
+              <p class="sharp-card-text">
+                Alle Mieteinnahmen fliessen direkt auf Ihr Konto. Am Monatsende erhalten Sie einen detaillierten Report. Unsere Provision (15–25%) wird nur auf tatsächlich erzielte Umsätze fällig.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- REVENUE & ADVANTAGES COMPARISON -->
+        <div class="model-comparison-box">
+          <span class="card-tag">EINNAHMEN-MODELL IM VERGLEICH</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; margin-top: 0.5rem;">Warum Schweizer Eigentümer LUMA LIVING wählen</h3>
+          
+          <div class="comparison-grid">
+            <div class="comparison-col">
+              <div class="col-tag">HERKÖMMLICHE DAUERMIETE</div>
+              <div class="col-title">Fixer Ertrag</div>
+              <p class="col-desc">
+                Gebundene Mietverträge, Mietausfallrisiko, Abnutzung über Jahre ohne regelmässige Zustandskontrolle und geringere monatliche Rendite.
+              </p>
+            </div>
+
+            <div class="comparison-col highlight">
+              <div class="col-tag" style="color: var(--color-primary);">LUMA LIVING CO-HOSTING</div>
+              <div class="col-title" style="color: var(--color-primary);">+35% bis +55% Netto</div>
+              <p class="col-desc">
+                Dynamische Spitzenpreise in der Hochsaison, monatliche Reinigungskontrolle, 100% Flexibilität für Eigenbedarf und 0 Stunden Eigenaufwand.
+              </p>
+            </div>
+
+            <div class="comparison-col">
+              <div class="col-tag">SELBSTVERWALTUNG AIRBNB</div>
+              <div class="col-title">Hoher Zeitaufwand</div>
+              <p class="col-desc">
+                Tägliche Gästenachrichten, Schlüsselnotdienste mitten in der Nacht, mühsame Reinigungskoordination und Risiko schlechter Bewertungen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Action -->
+        <div style="text-align: center;">
+          <button type="button" class="btn-editorial-primary" data-open-view="contact">
+            Kostenlose Potenzialanalyse für Ihre Liegenschaft anfordern
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 2: PROJEKTENTWICKLUNG VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-development" role="dialog" aria-label="Projektentwicklung">
+    
+    <!-- EXACT SAME HEADER AS HOMEPAGE -->
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn active" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper">
+      
+      <!-- HERO TITLE BANNER: ARCHITECTURAL BUILDING VISUAL -->
+      <div class="page-title-hero">
+        <img class="page-hero-image" src="assets/hero-building.jpg" alt="Schweizer Immobilien Projektentwicklung & Architektur">
+        <div class="page-hero-scrim"></div>
+        <div class="container">
+          <div class="page-hero-content">
+            <h1 class="page-hero-heading">Immobilien- & Projektentwicklung</h1>
+            <p class="page-hero-desc">
+              Wir konzipieren, renovieren und bauen ertragsstarke Liegenschaften in der gesamten Schweiz – von der architektonischen Optimierung bis zur schlüsselfertigen Airbnb-Immobilie.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <div style="margin-bottom: 2.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-primary); display: block; margin-bottom: 0.5rem;">SCHWEIZER ENTWICKLUNGS-KOMPETENZ</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em;">Vom Rohbau zum Superhost-Ertrag</h2>
+        </div>
+
+        <div class="sharp-grid-3">
+          
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">STUFE 01 · ANALYSE</div>
+              <h3 class="sharp-card-title">Standort- & Ertragsanalyse</h3>
+              <p class="sharp-card-text">
+                Fundierte Marktanalyse für Schweizer Destinationen: Wir prüfen kantonale Zonenpläne, baurechtliche Vorgaben und errechnen das reale Ertragspotenzial Ihrer Immobilie.
+              </p>
+            </div>
+          </article>
+
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">STUFE 02 · AUSBAU</div>
+              <h3 class="sharp-card-title">Architektur & Hospitality Interior</h3>
+              <p class="sharp-card-text">
+                Professionelle Raumoptimierung für Premium-Kurzzeitgäste. Hochwertige Materialien, langlebige Designermöbel, Beleuchtungskonzepte und modernste Haustechnik.
+              </p>
+            </div>
+          </article>
+
+          <article class="sharp-card">
+            <div>
+              <div class="card-num-badge">STUFE 03 · LAUNCH</div>
+              <h3 class="sharp-card-title">Schlüsselfertige Inbetriebnahme</h3>
+              <p class="sharp-card-text">
+                Smart Access Integration, professionelles Fotoshooting, internationale Listing-Positionierung und nahtloser Übergang in unser 360° Co-Hosting Management.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Development USP Box -->
+        <div class="model-comparison-box">
+          <span class="card-tag">INVESTOREN & EIGENTÜMER</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; margin-top: 0.5rem;">Maximale Wertsteigerung für Schweizer Liegenschaften</h3>
+          <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
+            Egal ob Neubau, Umbau bestehender Wohnungen oder Revitalisierung von Ferienchalets: LUMA LIVING begleitet Sie von der ersten Skizze über den Ausbau bis zur ersten Buchung mit Schweizer Präzision und Verlässlichkeit.
+          </p>
+        </div>
+
+        <div style="text-align: center;">
+          <button type="button" class="btn-editorial-primary" data-open-view="contact">
+            Projektentwicklung anfragen
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 3: TEAM VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-team" role="dialog" aria-label="Unser Team">
+    
+    <!-- EXACT SAME HEADER AS HOMEPAGE -->
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn active" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper" style="padding-top: 5rem;">
+      <div class="container">
+        
+        <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto;">
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); display: block; margin-bottom: 0.75rem;">EXPERTISE & PRÄZISION</span>
+          <h2 style="font-family: var(--font-heading); font-size: clamp(2.25rem, 3.8vw, 3.25rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem;">Das LUMA LIVING Team</h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.65;">
+            Wir verbinden erstklassiges Schweizer Housekeeping mit datengetriebenem Hospitality Revenue Management und Architektur.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          
+          <article class="team-member-card">
+            <img class="team-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Head of Hospitality">
+            <div class="team-info">
+              <h3 class="team-name">Elena Rossi</h3>
+              <div class="team-role">Head of Hospitality & Co-Hosting</div>
+              <p class="team-bio">
+                Über 9 Jahre Erfahrung in der Schweizer 5-Sterne Hotellerie und Luxus-Kurzzeitvermietung in Zürich, Luzern und St. Moritz.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-member-card">
+            <img class="team-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Head of Operations & Cleaning">
+            <div class="team-info">
+              <h3 class="team-name">Sandro Meier</h3>
+              <div class="team-role">Head of Housekeeping & Operations</div>
+              <p class="team-bio">
+                Leitet unser hauseigenes Reinigungsteam und stellt sicher, dass jede Liegenschaft nach jedem Gast im Neuzustand erstrahlt.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-member-card">
+            <img class="team-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Head of Revenue & Pricing">
+            <div class="team-info">
+              <h3 class="team-name">Fabian Keller</h3>
+              <div class="team-role">Head of Revenue & AI Pricing</div>
+              <p class="team-bio">
+                Verantwortet unsere Dynamic Pricing Algorithmen für maximale Belegung und Höchstpreise auf Airbnb, Booking.com und VRBO.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align: center;">
+          <button type="button" class="btn-editorial-primary" data-open-view="contact">
+            Lernen Sie uns persönlich kennen
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 4: FAQ VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-faq" role="dialog" aria-label="FAQ und Recht">
+    
+    <!-- EXACT SAME HEADER AS HOMEPAGE -->
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn active" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper" style="padding-top: 5rem;">
+      <div class="container">
+        
+        <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto;">
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); display: block; margin-bottom: 0.75rem;">FRAGEN & ANTWORTEN</span>
+          <h2 style="font-family: var(--font-heading); font-size: clamp(2.25rem, 3.8vw, 3.25rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem;">Häufig gestellte Fragen</h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.65;">
+            Transparente Informationen zu Ablauf, Absicherung und Erträgen in der Schweiz.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wie funktioniert das Co-Hosting Modell von LUMA LIVING genau?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a">
+              Der Eigentümer bleibt Inhaber aller Mieterträge und zahlt uns eine faire Provision (15–25%) für das vollständige operative Management (Listing-Optimierung, 24/7 Gästeservice, 5★-Reinigung und Dynamic Pricing).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wie ist meine Immobilie gegen Schäden versichert?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a">
+              Dreifacher Schutz über das weltweite Airbnb AirCover-Programm (bis zu 3 Mio. USD), erhobene Gästekautionen und unsere betriebliche Hospitality-Haftpflichtversicherung.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Kann ich die Wohnung auch noch für Eigenbedarf nutzen?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a">
+              Ja, jederzeit und uneingeschränkt! Über Ihren Eigentümer-Zugang können Sie gewünschte Daten für Eigenbedarf oder Freunde mit einem Klick sperren.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 5: KONTAKT VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-contact" role="dialog" aria-label="Kontakt & Analyse">
+    
+    <!-- EXACT SAME HEADER AS HOMEPAGE -->
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn active" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper" style="padding-top: 5rem;">
+      <div class="container">
+        
+        <div class="cta-banner">
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); display: block; margin-bottom: 0.75rem;">UNVERBINDLICH</span>
+          <h2 style="font-family: var(--font-heading); font-size: clamp(2.25rem, 3.8vw, 3.25rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem;">Bereit für maximalen Ertrag?</h2>
+          <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 34rem; margin: 0 auto;">
+            Erhalten Sie innerhalb von 24 Stunden eine individuelle Potenzialanalyse für Ihre Schweizer Liegenschaft.
+          </p>
+
+          <form id="lead-form-main" class="form-grid">
+            <input type="text" name="name" class="form-input" placeholder="Ihr Name" required>
+            <input type="email" name="email" class="form-input" placeholder="Ihre E-Mail" required>
+            <input type="text" name="location" class="form-input" placeholder="Standort der Immobilie (z.B. Zürich, Luzern)" required>
+            <select name="propertyType" class="form-input">
+              <option value="Wohnung 1-2.5 Zimmer">Wohnung (1–2.5 Zimmer)</option>
+              <option value="Wohnung 3-4.5 Zimmer">Wohnung (3–4.5 Zimmer)</option>
+              <option value="Ferienhaus / Chalet">Ferienhaus / Chalet</option>
+              <option value="Mehrfamilienhaus / Portfolio">Mehrfamilienhaus / Portfolio</option>
+            </select>
+            <div class="form-full">
+              <button type="submit" class="btn-editorial-primary" style="width: 100%;">
+                Kostenlose Potenzialanalyse anfordern
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 6: IMPRESSUM VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-impressum" role="dialog" aria-label="Impressum">
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper" style="padding-top: 4rem;">
+      <div class="container">
+        <div class="legal-content-box">
+          <span class="card-tag">RECHTLICHE ANGABEN</span>
+          <h1 style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; margin-top: 0.5rem; margin-bottom: 1.5rem;">Impressum</h1>
+          
+          <h2>Angaben gemäss Schweizer Recht</h2>
+          <p><strong>LUMA LIVING Switzerland</strong><br>
+          Hospitality Management & Projektentwicklung<br>
+          Schweiz</p>
+
+          <h2>Kontakt</h2>
+          <p>E-Mail: contact@lumaliving.ch<br>
+          Webseite: https://lumaliving.ch</p>
+
+          <h2>Vertretungsberechtigte Personen</h2>
+          <p>Geschäftsleitung LUMA LIVING Switzerland</p>
+
+          <h2>Haftungsausschluss</h2>
+          <p>LUMA LIVING übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstanden sind, werden ausgeschlossen.</p>
+
+          <h2>Haftung für Links</h2>
+          <p>Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des Nutzers oder der Nutzerin.</p>
+
+          <h2>Urheberrechte</h2>
+          <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich LUMA LIVING oder den speziell genannten Rechtsinhabern.</p>
+
+          <div style="margin-top: 2rem;">
+            <button type="button" class="btn-editorial-primary" data-open-view="hero">Zurück zur Startseite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OVERLAY SECTION 7: DATENSCHUTZ VIEW
+       ========================================================================== -->
+  <div class="editorial-section-view" id="view-datenschutz" role="dialog" aria-label="Datenschutzerklärung">
+    <header class="view-top-bar">
+      <div class="agency-brand" data-open-view="hero" title="LUMA LIVING Startseite">
+        <div class="brand-logo-transparent">
+          <div class="brand-mark-ll">
+            <span class="ll-1">L</span><span class="ll-2">L</span>
+          </div>
+          <span class="brand-name-text">LUMA LIVING</span>
+        </div>
+      </div>
+
+      <nav class="view-nav-links" aria-label="Sektionsnavigation">
+        <button class="view-nav-btn" data-open-view="cohosting">CO-HOSTING</button>
+        <button class="view-nav-btn" data-open-view="development">PROJEKTENTWICKLUNG</button>
+        <button class="view-nav-btn" data-open-view="team">TEAM</button>
+        <button class="view-nav-btn" data-open-view="faq">FAQ & RECHT</button>
+        <button class="view-nav-btn" data-open-view="contact">KONTAKT</button>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </header>
+
+    <div class="view-content-wrapper" style="padding-top: 4rem;">
+      <div class="container">
+        <div class="legal-content-box">
+          <span class="card-tag">DATENSCHUTZ NACH NDSG & DSGVO</span>
+          <h1 style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; margin-top: 0.5rem; margin-bottom: 1.5rem;">Datenschutzerklärung</h1>
+          
+          <h2>1. Datenschutz auf einen Blick</h2>
+          <p>Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG / nDSG) sowie der DSGVO hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen strikt ein.</p>
+
+          <h2>2. Erfassung und Bearbeitung von Personendaten</h2>
+          <p>In enger Zusammenarbeit mit unseren Schweizer Hosting-Providern schützen wir die Datenbanken so gut wie möglich vor fremden Zugriffen, Verlusten, Missbrauch oder vor Fälschung. Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+
+          <h2>3. SSL/TLS-Verschlüsselung</h2>
+          <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen für Potenzialanalysen, eine SSL/TLS-Verschlüsselung.</p>
+
+          <h2>4. Ihre Rechte</h2>
+          <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an: contact@lumaliving.ch.</p>
+
+          <div style="margin-top: 2rem;">
+            <button type="button" class="btn-editorial-primary" data-open-view="hero">Zurück zur Startseite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Pitch Preview Modal -->
+  <div class="modal-overlay" id="pitch-preview-modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Schliessen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <span class="card-tag" style="margin-bottom: 0.5rem; display: inline-block;">✓ ANALYSE & PITCH-VORLAGE</span>
+      <h3 style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem;">Ihr Eigentümer-Anschreiben</h3>
+      
+      <textarea id="pitch-text-output" class="form-input" rows="9" style="font-family: monospace; font-size: 0.8125rem; line-height: 1.6; resize: none; margin-bottom: 1.25rem;"></textarea>
+
+      <div style="display: flex; gap: 1rem;">
+        <button id="copy-pitch-btn" class="btn-editorial-primary" style="flex: 1;">
+          Text kopieren
+        </button>
+        <button class="btn-editorial-primary" style="background: var(--bg-surface-soft); color: var(--text-primary); border-color: var(--border-default);" data-close-modal>
+          Schliessen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
