@@ -46,11 +46,11 @@ function initSectionViewRouter() {
         setTimeout(() => {
           const scrollEl = document.getElementById(scrollTargetId);
           if (scrollEl) {
-            scrollEl.scrollIntoView({ behavior: 'smooth' });
+            scrollEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
           } else {
             targetEl.scrollTop = 0;
           }
-        }, 100);
+        }, 120);
       } else {
         targetEl.scrollTop = 0;
       }
