@@ -1387,63 +1387,70 @@ html, body {
   max-width: 32rem;
 }
 
-/* Contact Info Grid */
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 2.5rem;
-}
-
-@media (min-width: 640px) {
-  .contact-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.contact-info-card {
+/* Company Info Block (Klassische Schweizer Firmeninformationen) */
+.company-info-block {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 0.85rem;
-  padding: 0.85rem 1rem;
-  background: var(--bg-surface-soft);
-  border: 1px solid var(--border-subtle);
 }
 
-.contact-info-icon-box {
-  width: 2.5rem;
-  height: 2.5rem;
+.company-title-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.company-subtitle-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.company-address-lines {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.company-contact-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.company-contact-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.company-icon {
+  width: 1.15rem;
+  height: 1.15rem;
   color: var(--color-primary);
   flex-shrink: 0;
 }
 
-.contact-info-icon-box svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.contact-info-label {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.contact-info-value {
-  font-size: 0.9375rem;
-  font-weight: 700;
+.company-link {
   color: var(--text-primary);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-a.contact-info-value:hover {
+.company-link:hover {
   color: var(--color-primary);
+  text-decoration: underline;
 }
 
 /* Right Form Column */
