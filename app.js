@@ -1,12 +1,13 @@
 /**
- * LUMA LIVING · Nachhaltig aus der Schweiz
- * Application JavaScript: Click-Driven Section Views, Slide-Up Animations & Pitch Generator
+ * LUMA LIVING · Ihr Areal. Unser Betrieb.
+ * Application JavaScript: Click-Driven Section Views, Interactive ROI Calculator & Lead Flow
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initSectionViewRouter();
   initMobileMenu();
   initFaqAccordion();
+  initRoiCalculator();
   initPitchGenerator();
 });
 
@@ -20,7 +21,7 @@ function initSectionViewRouter() {
   const drawer = document.getElementById('mobile-drawer');
 
   // Function to switch to a specific view
-  const switchView = (targetViewId) => {
+  const switchView = (targetViewId, scrollTargetId = null) => {
     // Close mobile drawer if open
     if (drawer) {
       drawer.classList.remove('open');
@@ -41,7 +42,20 @@ function initSectionViewRouter() {
         if (v !== targetEl) v.classList.remove('active');
       });
       targetEl.classList.add('active');
-      targetEl.scrollTop = 0;
+      
+      if (scrollTargetId) {
+        setTimeout(() => {
+          const scrollEl = document.getElementById(scrollTargetId);
+          if (scrollEl) {
+            scrollEl.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            targetEl.scrollTop = 0;
+          }
+        }, 100);
+      } else {
+        targetEl.scrollTop = 0;
+      }
+      
       updateNavHighlight(targetViewId);
     }
   };
@@ -63,7 +77,8 @@ function initSectionViewRouter() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const target = btn.getAttribute('data-open-view');
-      switchView(target);
+      const scrollTarget = btn.getAttribute('data-scroll-target');
+      switchView(target, scrollTarget);
     });
   });
 
@@ -131,7 +146,83 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   4. SWISS OWNER PITCH & LEAD GENERATOR
+   4. INTERAKTIVER ERTRAGSRECHNER (MATCHING EXACT BUSINESSPLAN MODEL)
+   ========================================================================== */
+function initRoiCalculator() {
+  const unitsSlider = document.getElementById('calc-units');
+  const occSlider = document.getElementById('calc-occupancy');
+  const adrSlider = document.getElementById('calc-adr');
+  const investSlider = document.getElementById('calc-invest');
+
+  if (!unitsSlider || !occSlider || !adrSlider || !investSlider) return;
+
+  const unitsDisplay = document.getElementById('calc-units-display');
+  const occDisplay = document.getElementById('calc-occupancy-display');
+  const adrDisplay = document.getElementById('calc-adr-display');
+  const investDisplay = document.getElementById('calc-invest-display');
+
+  const revenueOut = document.getElementById('calc-revenue-out');
+  const nightsOut = document.getElementById('calc-nights-out');
+  const costsOut = document.getElementById('calc-costs-out');
+  const feeOut = document.getElementById('calc-fee-out');
+  const netOut = document.getElementById('calc-net-out');
+  const roiOut = document.getElementById('calc-roi-out');
+
+  // Format CHF with Swiss apostrophe
+  const formatCHF = (num) => {
+    return 'CHF ' + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+  };
+
+  const calculate = () => {
+    const units = parseInt(unitsSlider.value, 10);
+    const occPercent = parseInt(occSlider.value, 10);
+    const adr = parseInt(adrSlider.value, 10);
+    const investPerUnit = parseInt(investSlider.value, 10);
+
+    // Update Slider Displays
+    if (unitsDisplay) unitsDisplay.textContent = units.toString();
+    if (occDisplay) occDisplay.textContent = `${occPercent} %`;
+    if (adrDisplay) adrDisplay.textContent = formatCHF(adr);
+    if (investDisplay) investDisplay.textContent = formatCHF(investPerUnit);
+
+    // Model Calculations: 365 days / year
+    const nightsPerUnit = Math.round(365 * (occPercent / 100));
+    const totalLogisRevenue = units * nightsPerUnit * adr;
+
+    // Operating costs per unit (Platform fees, marketing, energy, maintenance reserve)
+    // Formula calibrated to business plan base: 3 units @ 55% occ = CHF 52'350 (CHF 17'450 / unit)
+    const baseUnitCosts = 17450 * (adr / 235) * (occPercent / 55);
+    const totalOperatingCosts = Math.round(units * baseUnitCosts);
+
+    // Luma Living fee: 25% of logis revenue
+    const lumaFee = Math.round(totalLogisRevenue * 0.25);
+
+    // Net Result for Landowner
+    const netResult = totalLogisRevenue - totalOperatingCosts - lumaFee;
+
+    // Total Investment & ROI
+    const totalInvestment = units * investPerUnit;
+    const roiPercentage = totalInvestment > 0 ? (netResult / totalInvestment) * 100 : 0;
+
+    // Render Outputs
+    if (revenueOut) revenueOut.textContent = formatCHF(totalLogisRevenue);
+    if (nightsOut) nightsOut.textContent = `${nightsPerUnit} × ${units} Einheit${units > 1 ? 'en' : ''}`;
+    if (costsOut) costsOut.textContent = `− ${formatCHF(totalOperatingCosts)}`;
+    if (feeOut) feeOut.textContent = `− ${formatCHF(lumaFee)}`;
+    if (netOut) netOut.textContent = formatCHF(netResult);
+    if (roiOut) roiOut.textContent = `${roiPercentage.toFixed(1).replace('.', ',')} %`;
+  };
+
+  [unitsSlider, occSlider, adrSlider, investSlider].forEach(slider => {
+    slider.addEventListener('input', calculate);
+  });
+
+  // Initial Calculation Run
+  calculate();
+}
+
+/* ==========================================================================
+   5. KONTAKT & GESPRÄCHSVORLAGE GENERATOR (PAGES 8 & 9)
    ========================================================================== */
 function initPitchGenerator() {
   const mainForm = document.getElementById('lead-form-main');
@@ -155,34 +246,42 @@ function initPitchGenerator() {
   const handleLeadSubmit = (e, form) => {
     e.preventDefault();
     const formData = new FormData(form);
-    const name = formData.get('name') || 'Liegenschaftsbesitzer/in';
-    const location = formData.get('location') || 'Schweiz';
-    const propertyType = formData.get('propertyType') || 'Wohnung';
+    const name = formData.get('name') || 'Partner';
+    const email = formData.get('email') || 'm27pema@gmail.com';
+    const location = formData.get('location') || 'Kanton Obwalden';
+    const propertyType = formData.get('propertyType') || 'Areal';
+    const message = formData.get('message') || 'Keine Zusatzangaben';
 
-    const pitchTemplate = `Guten Tag ${name},
+    const mailSubject = encodeURIComponent(`Projektanfrage Tiny Home Areal: ${location} (${name})`);
+    const mailBody = `Guten Tag Tim Lubura & Marco Petric,
 
-Vielen Dank für Ihre Anfrage bezüglich (${propertyType}) in ${location}.
+Ich interessiere mich für ein unverbindliches Erstgespräch bezüglich unseres Areals / Projekts für Tiny Homes.
 
-Als Innerschweizer Gründerteam mit operativem Dienstleistungsbetrieb in Sarnen entwickeln und betreiben wir designorientierte Tiny Homes an touristischen Lagen im Kanton Obwalden.
-
-Unser erprobtes LUMA LIVING Betreibermodell (Modell B):
-1. Zonenabklärung & Baurecht: Vorprüfung der Zonenkonformität (Art. 22/24b RPG, Campinggesetz OW)
-2. Wirtschaftlichkeit: Basisszenario CHF 235/Nacht, Break-even bereits bei 24.8% Auslastung (~90 Nächte/Jahr)
-3. 360° Betrieb & Housekeeping: Hauseigenes Reinigungsteam, 24/7 Gästeservice, Airbnb Superhost & Direktbuchungskanal
-4. Win-Win Partnerschaft: 25–35% Managementfee – der überwiegende Teil des Cashflows (~CHF 19'000+ EBITDA/Einheit) verbleibt bei Ihnen
-
-Wann passt Ihnen ein kurzes, unverbindliches 15-minütiges Gespräch in Sarnen oder vor Ort auf Ihrem Areal?
+Angaben zum Areal:
+• Name: ${name}
+• E-Mail: ${email}
+• Ort des Areals: ${location}
+• Kategorie: ${propertyType}
+• Nachricht / Details: ${message}
 
 Freundliche Grüsse
-Marco Petric, Tim Lubura & das LUMA LIVING Gründerteam
-Sarnen / Kanton Obwalden · m27pema@gmail.com`;
+${name}`;
 
     if (pitchOutput) {
-      pitchOutput.value = pitchTemplate;
+      pitchOutput.value = mailBody;
     }
 
     if (pitchModal) {
       pitchModal.classList.add('open');
+    }
+
+    if (copyBtn) {
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(pitchOutput.value).then(() => {
+          const mailtoUrl = `mailto:m27pema@gmail.com?subject=${mailSubject}&body=${encodeURIComponent(mailBody)}`;
+          window.location.href = mailtoUrl;
+        });
+      };
     }
 
     form.reset();
@@ -190,21 +289,5 @@ Sarnen / Kanton Obwalden · m27pema@gmail.com`;
 
   if (mainForm) {
     mainForm.addEventListener('submit', e => handleLeadSubmit(e, mainForm));
-  }
-
-  if (copyBtn && pitchOutput) {
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(pitchOutput.value);
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = 'Kopiert!';
-        setTimeout(() => {
-          copyBtn.innerHTML = originalText;
-        }, 2000);
-      } catch (err) {
-        pitchOutput.select();
-        document.execCommand('copy');
-      }
-    });
   }
 }
