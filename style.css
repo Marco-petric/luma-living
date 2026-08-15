@@ -760,58 +760,143 @@ h3 em, h3 i,
   color: var(--text-primary);
 }
 
-/* Market Stats Bar (Obwalden Tourismus 2025) */
-.market-stats-bar {
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  padding: 2.5rem 2.25rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
+/* Editorial Section Introductions (Layout wie Referenzbild mit Eyebrow & Underline) */
+.editorial-section-intro {
+  margin-bottom: 3.5rem;
 }
 
-@media (min-width: 768px) {
-  .market-stats-bar {
-    grid-template-columns: repeat(3, 1fr);
+.editorial-eyebrow {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.editorial-eyebrow em,
+.editorial-eyebrow i {
+  font-style: italic;
+}
+
+.editorial-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  max-width: 62rem;
+}
+
+.editorial-underline {
+  width: 4.5rem;
+  height: 1px;
+  background-color: var(--text-primary);
+  margin: 1.75rem 0 2.5rem 0;
+  opacity: 0.6;
+}
+
+.editorial-intro-lead {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 54rem;
+}
+
+/* Editorial Stats Showcase (2-Spalten Layout wie im Referenzbild) */
+.editorial-stats-showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 5.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 992px) {
+  .editorial-stats-showcase {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
   }
 }
 
-.stat-item {
-  border-left: 3px solid var(--color-primary);
-  padding-left: 1.25rem;
+.stats-showcase-visual {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
 }
 
-.stat-number {
+.stats-showcase-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stats-showcase-card {
+  background: var(--bg-surface-soft);
+  padding: clamp(2.5rem, 4.5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.stats-showcase-num {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.stats-showcase-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-accent-gold);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.stats-showcase-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.stats-showcase-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 2rem;
+}
+
+.stat-mini-num {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
-.stat-label {
+.stat-mini-label {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
-.stat-source {
-  grid-column: 1 / -1;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1rem;
-  margin-top: 0.5rem;
-}
-
-/* Sharp Swiss Grid Cards */
+/* Sharp Swiss Grid Cards (OHNE KÄSTEN - OFFEN AUF DEM WEISSEN HINTERGRUND) */
 .sharp-grid-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 4.5rem;
+  gap: 3rem 2.5rem;
+  margin-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
@@ -829,8 +914,8 @@ h3 em, h3 i,
 .sharp-grid-4 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 4.5rem;
+  gap: 3.5rem 2.5rem;
+  margin-bottom: 5.5rem;
 }
 
 @media (min-width: 640px) {
@@ -846,44 +931,45 @@ h3 em, h3 i,
 }
 
 .sharp-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  padding: 2.25rem 2rem;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 2.25rem 0.5rem 0.5rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  justify-content: flex-start;
+  box-shadow: none;
+  transition: border-top-color 0.2s ease, transform 0.2s ease;
 }
 
 .sharp-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  border-top-color: var(--color-accent-gold);
 }
 
 .card-num-badge {
   font-family: var(--font-heading);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  text-transform: none;
 }
 
 .sharp-card-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
   color: var(--color-accent-gold);
   line-height: 1.3;
 }
 
 .sharp-card-text {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* ==========================================================================
@@ -984,30 +1070,33 @@ h3 em, h3 i,
   display: block;
 }
 
-/* Revenue & Model Comparison Box */
+/* Revenue & Model Comparison Box (OHNE KÄSTEN) */
 .model-comparison-box {
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  padding: 3rem 2.5rem;
-  margin-bottom: 4rem;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 3.5rem 0 2rem 0;
+  margin-bottom: 5rem;
+  box-shadow: none;
 }
 
 .comparison-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 3rem;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 768px) {
   .comparison-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 4.5rem;
   }
 }
 
 .comparison-col {
-  border-left: 3px solid var(--border-default);
-  padding-left: 1.75rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+  padding-left: 2rem;
 }
 
 .comparison-col.highlight {
@@ -1015,9 +1104,9 @@ h3 em, h3 i,
 }
 
 .col-tag {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 0.5rem;
@@ -1026,39 +1115,39 @@ h3 em, h3 i,
 .col-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.85rem;
 }
 
 .col-desc {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 /* Bullet list for partner contributions */
 .contribution-list {
   list-style: none;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .contribution-list li {
   position: relative;
   padding-left: 1.5rem;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .contribution-list li::before {
   content: '○';
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: var(--color-accent-gold);
   font-weight: bold;
 }
 
@@ -1067,41 +1156,41 @@ h3 em, h3 i,
    ========================================================================== */
 
 .roi-calculator-box {
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  padding: 3rem 2.5rem;
-  margin-bottom: 4rem;
-  box-shadow: var(--shadow-card);
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: 5rem;
+  box-shadow: none;
 }
 
 .calc-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 992px) {
   .calc-grid {
     grid-template-columns: 1.2fr 1fr;
-    gap: 3.5rem;
+    gap: 4rem;
   }
 }
 
 .calc-controls {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 /* Slider with Input Group (Modern Radix/Shadcn style) */
 .calc-slider-input-item {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  background: var(--bg-surface-soft);
+  gap: 0.75rem;
+  background: #FFFFFF;
   border: 1px solid var(--border-default);
-  padding: 1.15rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   transition: border-color 0.2s ease;
 }
 
@@ -1117,7 +1206,7 @@ h3 em, h3 i,
 
 .calc-control-label {
   font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -1127,9 +1216,8 @@ h3 em, h3 i,
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--color-primary);
-  background: #FFFFFF;
-  padding: 0.2rem 0.55rem;
-  border: 1px solid var(--border-default);
+  background: var(--bg-surface-soft);
+  padding: 0.25rem 0.65rem;
 }
 
 .calc-input-slider-row {
@@ -1181,102 +1269,95 @@ h3 em, h3 i,
   box-shadow: 0 2px 8px rgba(17, 24, 19, 0.35);
 }
 
-.calc-num-input-wrap {
-  position: relative;
-  width: 5.75rem;
+.calc-text-input-box {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-}
-
-.calc-direct-input {
-  width: 100%;
-  padding: 0.4rem 1.8rem 0.4rem 0.6rem;
+  gap: 0.35rem;
   background: #FFFFFF;
   border: 1px solid var(--border-default);
+  padding: 0.4rem 0.65rem;
+  width: 7.5rem;
+}
+
+.calc-text-input {
+  width: 100%;
+  border: none;
+  outline: none;
   font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 800;
   color: var(--text-primary);
   text-align: right;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: transparent;
 }
 
-.calc-direct-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary-subtle);
-}
-
-.calc-input-unit {
-  position: absolute;
-  right: 0.5rem;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  pointer-events: none;
-}
-
-/* Reset Button */
-.btn-calc-reset {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.85rem;
-  background: var(--bg-surface-soft);
-  border: 1px solid var(--border-default);
-  color: var(--text-secondary);
-  font-family: var(--font-heading);
+.calc-currency-label {
   font-size: 0.75rem;
   font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: var(--text-muted);
 }
 
-.btn-calc-reset:hover {
-  background: var(--color-primary);
-  color: #FFFFFF;
-  border-color: var(--color-primary);
-}
-
-/* Calculator Output Panel */
-.calc-output-panel {
-  background: var(--bg-surface-soft);
-  border: 1px solid var(--border-default);
-  padding: 2rem 1.75rem;
+/* Right Output Column */
+.calc-results-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  padding: 2.5rem 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.calc-results-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.calc-output-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .calc-output-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: var(--text-secondary);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--border-subtle);
 }
 
-.calc-output-row.highlight-row {
-  border-bottom: 2px solid var(--color-primary);
-  margin-top: 0.5rem;
-  padding-top: 1rem;
-  font-size: 1.125rem;
+.calc-output-row .val {
+  font-family: var(--font-heading);
   font-weight: 800;
   color: var(--text-primary);
 }
 
+.calc-output-row.highlight-row {
+  border-bottom: none;
+  border-top: 2px solid var(--color-primary);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
 .calc-output-row.highlight-row .val {
+  font-size: 1.5rem;
   color: var(--color-primary);
-  font-size: 1.35rem;
 }
 
 .calc-roi-badge {
-  background: var(--color-primary);
-  color: #FFFFFF;
-  padding: 1.25rem 1.5rem;
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-default);
+  padding: 1.25rem;
   margin-top: 1.5rem;
   text-align: center;
 }
@@ -1285,22 +1366,24 @@ h3 em, h3 i,
   font-family: var(--font-heading);
   font-size: 2.25rem;
   font-weight: 800;
+  color: var(--color-primary);
   line-height: 1;
-  margin-bottom: 0.25rem;
 }
 
 .calc-roi-sub {
   font-size: 0.75rem;
-  opacity: 0.9;
-  letter-spacing: 0.05em;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
 }
 
-/* Site Criteria Checklist (Passt Ihr Areal?) */
+/* Criteria Grid (OHNE KÄSTEN) */
 .criteria-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1rem 2.5rem;
   margin-top: 2rem;
 }
 
@@ -1312,43 +1395,35 @@ h3 em, h3 i,
 
 .criteria-item {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   gap: 0.85rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  padding: 1.25rem 1.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .criteria-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: var(--color-primary-subtle);
-  color: var(--color-primary);
+  font-size: 1rem;
   font-weight: 800;
-  font-size: 0.875rem;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
 .criteria-text {
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* ==========================================================================
-   2-PERSON FOUNDER TEAM GRID (SHARP SWISS ARCHITECTURE STYLE)
+   TEAM SECTION (OHNE KÄSTEN - OFFENES EDITORIAL DESIGN)
    ========================================================================== */
 
 .team-grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
-  max-width: 54rem;
-  margin: 0 auto 4rem auto;
+  gap: 3.5rem;
+  max-width: 64rem;
+  margin: 0 auto 5rem auto;
 }
 
 @media (min-width: 768px) {
@@ -1358,22 +1433,24 @@ h3 em, h3 i,
 }
 
 .team-member-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 2rem;
+  overflow: visible;
+  box-shadow: none;
 }
 
 .team-placeholder-avatar {
   width: 100%;
-  height: 180px;
+  height: 220px;
   background: var(--bg-surface-soft);
-  border-bottom: 1px solid var(--border-default);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-serif-brand);
-  font-size: 2.75rem;
+  font-size: 3rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   color: var(--color-primary);
@@ -1381,48 +1458,49 @@ h3 em, h3 i,
 }
 
 .team-info {
-  padding: 2rem 1.75rem;
+  padding: 1.75rem 0 0 0;
 }
 
 .team-name {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.45rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .team-role {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent-gold);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .team-bio {
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* ==========================================================================
-   FAQ & CONTACT (SHARP STYLING)
+   FAQ (OHNE KÄSTEN - OFFENE EDITORIAL LISTE)
    ========================================================================== */
 
 .faq-list {
-  max-width: 50rem;
+  max-width: 58rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .faq-item {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  overflow: hidden;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: visible;
 }
 
 .faq-q {
@@ -1430,13 +1508,13 @@ h3 em, h3 i,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 0;
   background: transparent;
   border: none;
   color: var(--text-primary);
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   text-align: left;
   cursor: pointer;
 }
@@ -1444,7 +1522,7 @@ h3 em, h3 i,
 .faq-icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--color-primary);
+  color: var(--color-accent-gold);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -1457,56 +1535,54 @@ h3 em, h3 i,
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 1.5rem;
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.75;
   color: var(--text-secondary);
 }
 
 .faq-item.open .faq-a {
   max-height: 400px;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
 }
 
 /* ==========================================================================
-   MODERN CONTACT CARD COMPONENT (WITH ARCHITECTURAL CORNER PLUS MARKS)
+   MODERN CONTACT SECTION (OHNE KASTEN-UMRANDUNG)
    ========================================================================== */
 
 .contact-card-modern {
   position: relative;
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  box-shadow: var(--shadow-card);
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 68rem;
+  max-width: 74rem;
   margin: 0 auto;
+  gap: 3rem;
+  padding-top: 3.5rem;
 }
 
 @media (min-width: 992px) {
   .contact-card-modern {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4.5rem;
   }
 }
 
 /* Left Content Column */
 .contact-card-info-col {
-  padding: 3.5rem 3rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-  .contact-card-info-col {
-    padding: 2.5rem 1.75rem;
-  }
-}
-
 .contact-card-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+  font-weight: 700;
   line-height: 1.15;
   color: var(--text-primary);
   margin-top: 0.5rem;
@@ -1514,99 +1590,20 @@ h3 em, h3 i,
 }
 
 .contact-card-desc {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 32rem;
-}
-
-/* Company Info Block (Klassische Schweizer Firmeninformationen) */
-.company-info-block {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-subtle);
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.company-title-text {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: 0.04em;
-}
-
-.company-subtitle-text {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.company-address-lines {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.company-contact-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.company-contact-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9375rem;
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.company-icon {
-  width: 1.15rem;
-  height: 1.15rem;
-  color: var(--color-primary);
-  flex-shrink: 0;
-}
-
-.company-link {
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.company-link:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
+  line-height: 1.75;
+  max-width: 34rem;
 }
 
 /* Right Form Column */
 .contact-card-form-col {
   background: var(--bg-surface-soft);
-  border-top: 1px solid var(--border-default);
-  padding: 3.5rem 2.75rem;
+  border: 1px solid var(--border-subtle);
+  padding: clamp(2.5rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-@media (min-width: 992px) {
-  .contact-card-form-col {
-    border-top: none;
-    border-left: 1px solid var(--border-default);
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-card-form-col {
-    padding: 2.5rem 1.75rem;
-  }
 }
 
 .contact-form-inner {
@@ -1631,12 +1628,12 @@ h3 em, h3 i,
 
 .form-input-modern {
   width: 100%;
-  padding: 0.65rem 0.85rem;
+  padding: 0.75rem 0.95rem;
   background: #FFFFFF;
   border: 1px solid var(--border-default);
   color: var(--text-primary);
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1667,13 +1664,79 @@ h3 em, h3 i,
   border-color: #ef9a9a;
 }
 
+/* Company Info Block (Klassische Schweizer Firmeninformationen) */
+.company-info-block {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.company-title-text {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.company-subtitle-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.company-address-lines {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.company-contact-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.company-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.company-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-accent-gold);
+  flex-shrink: 0;
+}
+
+.company-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.company-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 /* Sharp Architectural Button */
 .btn-editorial-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.9375rem 2rem;
+  padding: 1rem 2.25rem;
   background: var(--color-primary);
   color: #FFFFFF;
   border: 1px solid var(--color-primary);
@@ -1692,14 +1755,15 @@ h3 em, h3 i,
   border-color: var(--color-primary-hover);
 }
 
-/* Legal Page Content Box */
+/* Legal Page Content Box (OHNE KASTEN) */
 .legal-content-box {
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  padding: 3rem 2.5rem;
-  max-width: 52rem;
+  background: transparent;
+  border: none;
+  padding: 2rem 0;
+  max-width: 60rem;
   margin: 0 auto;
-  line-height: 1.75;
+  line-height: 1.8;
+  box-shadow: none;
 }
 
 .legal-content-box h2 {
