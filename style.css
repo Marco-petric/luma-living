@@ -804,7 +804,7 @@ html, body {
 
 .stats-showcase-card {
   background: var(--bg-surface-soft);
-  padding: clamp(2.5rem, 4vw, 3.75rem);
+  padding: clamp(2rem, 3.5vw, 3.25rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -812,14 +812,21 @@ html, body {
 
 .stats-showcase-num {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
   font-weight: 800;
   color: var(--color-primary);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
   white-space: nowrap !important;
-  word-break: keep-all;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  display: block;
+}
+
+.stats-showcase-num span {
+  display: inline-block;
+  white-space: nowrap !important;
 }
 
 .stats-showcase-title {
