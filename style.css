@@ -1027,6 +1027,89 @@ html, body {
 }
 
 /* ==========================================================================
+   RISIKOMANAGEMENT & TRANSPARENZ-MATRIX
+   ========================================================================== */
+
+.risk-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+  .risk-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.risk-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.risk-card-header {
+  padding: 2.25rem 2rem 1.5rem 2rem;
+}
+
+.risk-tag {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b71c1c;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.risk-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.65rem;
+}
+
+.risk-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.risk-card-response {
+  background: var(--bg-surface-soft);
+  border-top: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--color-primary);
+  padding: 1.5rem 2rem;
+}
+
+.response-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.response-text {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
    INTERAKTIVER ERTRAGSRECHNER (ROI CALCULATOR)
    ========================================================================== */
 
