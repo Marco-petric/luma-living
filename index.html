@@ -65,14 +65,7 @@
       <p class="hero-brand-tagline">Ihr Areal. Unser Betrieb.</p>
     </div>
 
-    <!-- 3. RIGHT RAIL: SOCIAL ICONS -->
-    <aside class="hero-right-rail" aria-label="Social Media">
-      <a href="https://www.instagram.com/luma_living.ch" target="_blank" rel="noopener noreferrer" class="rail-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-    </aside>
-
-    <!-- 4. BOTTOM STAGE: WHITE CARD (NUR TEXT, KEINE BUTTONS, KEIN STAND HEUTE) & LEGAL LINKS -->
+    <!-- 3. BOTTOM STAGE: WHITE CARD & BOTTOM-RIGHT CONTROLS (SOCIAL DOCK + LEGAL LINKS) -->
     <div class="hero-bottom-stage">
       
       <!-- Portfolio White Card (Slides up on load) -->
@@ -83,11 +76,46 @@
         </p>
       </div>
 
-      <!-- Bottom-Right Legal Navigation (Impressum & Datenschutz) -->
-      <div class="hero-bottom-legal">
-        <button type="button" class="legal-nav-link" data-open-view="impressum">IMPRESSUM</button>
-        <span class="legal-sep">·</span>
-        <button type="button" class="legal-nav-link" data-open-view="datenschutz">DATENSCHUTZ</button>
+      <!-- Bottom-Right Controls: Social Dock + Legal Links -->
+      <div class="hero-bottom-right-cluster">
+        
+        <!-- Interactive Floating Social Dock with Tooltips (wie im Design) -->
+        <div class="social-dock" aria-label="Social Media &amp; Kontakt">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/luma_living.ch" target="_blank" rel="noopener noreferrer" class="social-dock-item" aria-label="Instagram">
+            <span class="social-dock-tooltip">Instagram</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+
+          <!-- E-Mail -->
+          <a href="mailto:luma.living.ch@gmail.com" class="social-dock-item" aria-label="E-Mail">
+            <span class="social-dock-tooltip">E-Mail</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+
+          <!-- Telefon / Direktkontakt -->
+          <a href="tel:+41774183202" class="social-dock-item" aria-label="Telefon">
+            <span class="social-dock-tooltip">+41 77 418 32 02</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Bottom-Right Legal Navigation (Impressum & Datenschutz) -->
+        <div class="hero-bottom-legal">
+          <button type="button" class="legal-nav-link" data-open-view="impressum">IMPRESSUM</button>
+          <span class="legal-sep">·</span>
+          <button type="button" class="legal-nav-link" data-open-view="datenschutz">DATENSCHUTZ</button>
+        </div>
+
       </div>
 
     </div>
@@ -1071,7 +1099,7 @@
           <div class="page-hero-content">
             <h1 class="page-hero-heading">Zwei Gründer aus der Region</h1>
             <p class="page-hero-desc">
-              Wir sind jung und bauen unser erstes Beherbergungsprojekt auf — das sagen wir lieber selbst, als dass Sie es herausfinden. Was wir mitbringen: zwei aus der Region, die anpacken, sich ergänzen und den Betrieb selbst führen.
+              Wir sind jung und bauen unser erstes Beherbergungsprojekt auf. Was wir mitbringen, sind zwei Leute aus der Region, die anpacken, sich gut ergänzen und den Betrieb von Anfang an selbst führen.
             </p>
           </div>
         </div>
