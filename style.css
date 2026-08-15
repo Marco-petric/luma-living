@@ -1335,46 +1335,235 @@ html, body {
   padding-bottom: 1.25rem;
 }
 
-/* Sharp Contact Form */
-.cta-banner {
+/* ==========================================================================
+   MODERN CONTACT CARD COMPONENT (WITH ARCHITECTURAL CORNER PLUS MARKS)
+   ========================================================================== */
+
+.contact-card-modern {
+  position: relative;
   background: #FFFFFF;
   border: 1px solid var(--border-default);
-  padding: 4rem 2.5rem;
-  text-align: center;
   box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 68rem;
+  margin: 0 auto;
 }
 
-.form-grid {
+@media (min-width: 992px) {
+  .contact-card-modern {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* 4 Architectural Corner Plus Marks */
+.corner-plus {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-primary);
+  background: #FFFFFF;
+  border: 1px solid var(--border-default);
+  line-height: 1;
+  user-select: none;
+  z-index: 10;
+}
+
+.corner-plus.top-left {
+  top: -0.625rem;
+  left: -0.625rem;
+}
+
+.corner-plus.top-right {
+  top: -0.625rem;
+  right: -0.625rem;
+}
+
+.corner-plus.bottom-left {
+  bottom: -0.625rem;
+  left: -0.625rem;
+}
+
+.corner-plus.bottom-right {
+  bottom: -0.625rem;
+  right: -0.625rem;
+}
+
+/* Left Content Column */
+.contact-card-info-col {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .contact-card-info-col {
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+.contact-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 32rem;
+}
+
+/* Contact Info Grid */
+.contact-info-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  max-width: 40rem;
-  margin: 2.5rem auto 0 auto;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 640px) {
-  .form-grid {
+  .contact-info-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .form-full {
-    grid-column: span 2;
   }
 }
 
-.form-input {
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+}
+
+.contact-info-icon-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid var(--border-default);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contact-info-icon-box svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.contact-info-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-info-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+a.contact-info-value:hover {
+  color: var(--color-primary);
+}
+
+/* Right Form Column */
+.contact-card-form-col {
+  background: var(--bg-surface-soft);
+  border-top: 1px solid var(--border-default);
+  padding: 3.5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .contact-card-form-col {
+    border-top: none;
+    border-left: 1px solid var(--border-default);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card-form-col {
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+.contact-form-inner {
   width: 100%;
-  padding: 0.875rem 1.125rem;
-  background: var(--bg-main);
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.form-input-modern {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: #FFFFFF;
   border: 1px solid var(--border-default);
   color: var(--text-primary);
   font-family: var(--font-heading);
   font-size: 0.875rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-input:focus {
+.form-input-modern:focus {
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-subtle);
+}
+
+.form-status-box {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid;
+}
+
+.form-status-box.success {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form-status-box.error {
+  background: #ffebee;
+  color: #c62828;
+  border-color: #ef9a9a;
 }
 
 /* Sharp Architectural Button */

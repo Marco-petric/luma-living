@@ -833,55 +833,111 @@
       </button>
     </header>
 
-    <div class="view-content-wrapper" style="padding-top: 5rem;">
+    <div class="view-content-wrapper" style="padding-top: 4rem;">
       <div class="container">
         
-        <div class="cta-banner">
-          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-primary); display: block; margin-bottom: 0.75rem;">KONTAKT</span>
-          <h2 style="font-family: var(--font-heading); font-size: clamp(2.25rem, 3.8vw, 3.25rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem;">Reden wir über Ihr Areal.</h2>
-          <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 38rem; margin: 0 auto 2rem auto;">
-            Ein erstes Gespräch dauert eine halbe Stunde, kostet nichts und verpflichtet zu nichts. Wenn wir Ihr Areal nicht für tragfähig halten, sagen wir Ihnen das im selben Gespräch.
-          </p>
+        <!-- MODERN CONTACT CARD COMPONENT (WITH ARCHITECTURAL CORNER PLUS MARKS) -->
+        <div class="contact-card-modern">
+          <!-- 4 Architectural Corner Plus Crosshairs -->
+          <span class="corner-plus top-left" aria-hidden="true">+</span>
+          <span class="corner-plus top-right" aria-hidden="true">+</span>
+          <span class="corner-plus bottom-left" aria-hidden="true">+</span>
+          <span class="corner-plus bottom-right" aria-hidden="true">+</span>
 
-          <!-- Kontakt Meta-Leiste -->
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; font-size: 0.875rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.5rem;">
+          <!-- Left Info Column -->
+          <div class="contact-card-info-col">
             <div>
-              <span style="font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); display: block;">E-MAIL</span>
-              <a href="mailto:m27pema@gmail.com" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">m27pema@gmail.com</a>
+              <span class="card-tag">KONTAKT</span>
+              <h1 class="contact-card-title">Reden wir über Ihr Areal.</h1>
+              <p class="contact-card-desc">
+                Ein erstes Gespräch dauert eine halbe Stunde, kostet nichts und verpflichtet zu nichts. Wenn wir Ihr Areal nicht für tragfähig halten, sagen wir Ihnen das im selben Gespräch.
+              </p>
             </div>
-            <div>
-              <span style="font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); display: block;">REGION</span>
-              <strong style="color: var(--text-primary);">Kanton Obwalden und nähere Innerschweiz</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); display: block;">INHABER</span>
-              <strong style="color: var(--text-primary);">Tim Lubura · Marco Petric</strong>
+
+            <!-- Contact Details Cards with Icons -->
+            <div class="contact-info-grid">
+              
+              <!-- E-Mail -->
+              <div class="contact-info-card">
+                <div class="contact-info-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-label">E-Mail</p>
+                  <a href="mailto:luma.living.ch@gmail.com" class="contact-info-value">luma.living.ch@gmail.com</a>
+                </div>
+              </div>
+
+              <!-- Region -->
+              <div class="contact-info-card">
+                <div class="contact-info-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-label">Region</p>
+                  <p class="contact-info-value">Kanton Obwalden</p>
+                </div>
+              </div>
+
+              <!-- Inhaber -->
+              <div class="contact-info-card" style="grid-column: 1 / -1;">
+                <div class="contact-info-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-label">Inhaber &amp; Gründer</p>
+                  <p class="contact-info-value">Tim Lubura · Marco Petric</p>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <form id="lead-form-main" class="form-grid">
-            <input type="text" name="name" class="form-input" placeholder="Vor- und Nachname" required>
-            <input type="email" name="email" class="form-input" placeholder="Ihre E-Mail (z. B. name@beispiel.ch)" required>
-            <input type="text" name="location" class="form-input" placeholder="Ort des Areals (z. B. Giswil, Lungern, Kerns, Sarnen)" required>
-            <select name="propertyType" class="form-input">
-              <option value="Ich besitze Land oder ein Areal">Ich besitze Land oder ein Areal</option>
-              <option value="Ich betreibe einen Campingplatz / Tourismusareal">Ich betreibe einen Campingplatz / Tourismusareal</option>
-              <option value="Ich bin Landwirt mit Interesse an Agrotourismus">Ich bin Landwirt mit Interesse an Agrotourismus</option>
-              <option value="Ich bin Investor für Tiny House Einheiten">Ich bin Investor für Tiny House Einheiten</option>
-              <option value="Anderes">Anderes</option>
-            </select>
-            <div class="form-full">
-              <textarea name="message" class="form-input" rows="3" placeholder="Was sollten wir über Ihr Areal wissen? (Grösse, Erschliessung, Zone...)" style="resize: vertical;"></textarea>
-            </div>
-            <div class="form-full">
-              <button type="submit" class="btn-editorial-primary" style="width: 100%;">
-                Anfrage senden
+          <!-- Right Form Column (Direkter Versand per AJAX / Formsubmit) -->
+          <div class="contact-card-form-col">
+            <form id="direct-contact-form" class="contact-form-inner" action="https://formsubmit.co/ajax/luma.living.ch@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Neue Tiny House Areal-Anfrage via luma-living.ch">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              
+              <div class="form-field-group">
+                <label class="form-label" for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" class="form-input-modern" placeholder="Vor- und Nachname" required>
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-label" for="contact-email">E-Mail</label>
+                <input type="email" id="contact-email" name="email" class="form-input-modern" placeholder="name@beispiel.ch" required>
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-label" for="contact-location">Ort des Areals</label>
+                <input type="text" id="contact-location" name="location" class="form-input-modern" placeholder="z. B. Giswil, Lungern, Kerns, Sarnen" required>
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-label" for="contact-type">Kategorie</label>
+                <select id="contact-type" name="propertyType" class="form-input-modern">
+                  <option value="Ich besitze Land oder ein Areal">Ich besitze Land oder ein Areal</option>
+                  <option value="Ich betreibe einen Campingplatz / Tourismusareal">Ich betreibe einen Campingplatz / Tourismusareal</option>
+                  <option value="Ich bin Landwirt mit Interesse an Agrotourismus">Ich bin Landwirt mit Interesse an Agrotourismus</option>
+                  <option value="Ich bin Investor für Tiny House Einheiten">Ich bin Investor für Tiny House Einheiten</option>
+                  <option value="Anderes">Anderes</option>
+                </select>
+              </div>
+
+              <div class="form-field-group">
+                <label class="form-label" for="contact-message">Nachricht</label>
+                <textarea id="contact-message" name="message" class="form-input-modern" rows="3" placeholder="Was sollten wir über Ihr Areal wissen?" style="resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn-editorial-primary" style="width: 100%;">
+                <span>Anfrage direkt senden</span>
               </button>
-              <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.6rem;">
-                Das Formular generiert Ihre Vorlage und ermöglicht direkte Kontaktaufnahme. Sie sehen alles, bevor Sie senden.
-              </span>
-            </div>
-          </form>
+
+              <div id="form-status-msg" class="form-status-box" style="display: none;"></div>
+            </form>
+          </div>
         </div>
 
       </div>
@@ -937,7 +993,7 @@
 
           <h2>Kontakt</h2>
           <p>
-            E-Mail: <a href="mailto:m27pema@gmail.com" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">m27pema@gmail.com</a><br>
+            E-Mail: <a href="mailto:luma.living.ch@gmail.com" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">luma.living.ch@gmail.com</a><br>
             Webseite: <a href="https://lumaliving.ch" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">https://lumaliving.ch</a>
           </p>
 
@@ -1012,7 +1068,7 @@
           <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung.</p>
 
           <h2>4. Ihre Rechte</h2>
-          <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an: m27pema@gmail.com.</p>
+          <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Wenden Sie sich hierzu jederzeit an: luma.living.ch@gmail.com.</p>
 
           <div style="margin-top: 2rem;">
             <button type="button" class="btn-editorial-primary" data-open-view="hero">Zurück zur Startseite</button>

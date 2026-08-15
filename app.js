@@ -289,72 +289,70 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   5. KONTAKT & GESPRÄCHSVORLAGE GENERATOR (PAGES 8 & 9)
+   5. DIREKTER EMAIL-VERSAND (KEIN EIGENES MAIL-PROGRAMM NÖTIG)
    ========================================================================== */
 function initPitchGenerator() {
-  const mainForm = document.getElementById('lead-form-main');
-  const pitchModal = document.getElementById('pitch-preview-modal');
-  const pitchOutput = document.getElementById('pitch-text-output');
-  const copyBtn = document.getElementById('copy-pitch-btn');
-  const closeModalBtns = document.querySelectorAll('[data-close-modal]');
+  const directForm = document.getElementById('direct-contact-form');
+  const submitBtn = document.getElementById('contact-submit-btn');
+  const statusBox = document.getElementById('form-status-msg');
 
-  closeModalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (pitchModal) pitchModal.classList.remove('open');
-    });
-  });
+  if (!directForm) return;
 
-  if (pitchModal) {
-    pitchModal.addEventListener('click', (e) => {
-      if (e.target === pitchModal) pitchModal.classList.remove('open');
-    });
-  }
-
-  const handleLeadSubmit = (e, form) => {
+  directForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    const name = formData.get('name') || 'Partner';
-    const email = formData.get('email') || 'm27pema@gmail.com';
-    const location = formData.get('location') || 'Kanton Obwalden';
-    const propertyType = formData.get('propertyType') || 'Areal';
-    const message = formData.get('message') || 'Keine Zusatzangaben';
-
-    const mailSubject = encodeURIComponent(`Projektanfrage Tiny Home Areal: ${location} (${name})`);
-    const mailBody = `Guten Tag Tim Lubura & Marco Petric,
-
-Ich interessiere mich für ein unverbindliches Erstgespräch bezüglich unseres Areals / Projekts für Tiny Homes.
-
-Angaben zum Areal:
-• Name: ${name}
-• E-Mail: ${email}
-• Ort des Areals: ${location}
-• Kategorie: ${propertyType}
-• Nachricht / Details: ${message}
-
-Freundliche Grüsse
-${name}`;
-
-    if (pitchOutput) {
-      pitchOutput.value = mailBody;
+    
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Wird direkt übermittelt...</span>';
     }
 
-    if (pitchModal) {
-      pitchModal.classList.add('open');
+    if (statusBox) {
+      statusBox.style.display = 'none';
+      statusBox.className = 'form-status-box';
     }
 
-    if (copyBtn) {
-      copyBtn.onclick = () => {
-        navigator.clipboard.writeText(pitchOutput.value).then(() => {
-          const mailtoUrl = `mailto:m27pema@gmail.com?subject=${mailSubject}&body=${encodeURIComponent(mailBody)}`;
-          window.location.href = mailtoUrl;
-        });
-      };
+    const formData = new FormData(directForm);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/luma.living.ch@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        if (statusBox) {
+          statusBox.className = 'form-status-box success';
+          statusBox.innerHTML = '✓ <strong>Vielen Dank!</strong> Ihre Anfrage wurde erfolgreich direkt an uns (luma.living.ch@gmail.com) übermittelt. Wir melden uns innerhalb kürzester Zeit bei Ihnen.';
+          statusBox.style.display = 'block';
+        }
+        directForm.reset();
+      } else {
+        throw new Error('Übertragungsfehler');
+      }
+    } catch (err) {
+      // Graceful fallback option
+      const name = formData.get('name') || 'Partner';
+      const email = formData.get('email') || 'luma.living.ch@gmail.com';
+      const location = formData.get('location') || 'Kanton Obwalden';
+      const propertyType = formData.get('propertyType') || 'Areal';
+      const message = formData.get('message') || '';
+
+      const mailSubject = encodeURIComponent(`Projektanfrage Tiny Home Areal: ${location} (${name})`);
+      const mailBody = encodeURIComponent(`Guten Tag Tim Lubura & Marco Petric,\n\nIch interessiere mich für ein unverbindliches Erstgespräch bezüglich unseres Areals für Tiny Homes.\n\nAngaben:\n• Name: ${name}\n• E-Mail: ${email}\n• Ort: ${location}\n• Kategorie: ${propertyType}\n• Details: ${message}\n\nFreundliche Grüsse\n${name}`);
+
+      if (statusBox) {
+        statusBox.className = 'form-status-box success';
+        statusBox.innerHTML = `✓ Nachricht vorbereitet. <a href="mailto:luma.living.ch@gmail.com?subject=${mailSubject}&body=${mailBody}" style="color: var(--color-primary); font-weight: 700; text-decoration: underline;">Hier klicken, um die E-Mail direkt zu versenden</a>.`;
+        statusBox.style.display = 'block';
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Anfrage direkt senden</span>';
+      }
     }
-
-    form.reset();
-  };
-
-  if (mainForm) {
-    mainForm.addEventListener('submit', e => handleLeadSubmit(e, mainForm));
-  }
+  });
 }
