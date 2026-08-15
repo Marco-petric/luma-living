@@ -812,12 +812,14 @@ html, body {
 
 .stats-showcase-num {
   font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
   font-weight: 800;
   color: var(--color-primary);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
+  white-space: nowrap !important;
+  word-break: keep-all;
 }
 
 .stats-showcase-title {
@@ -846,9 +848,11 @@ html, body {
 
 .stat-mini-num {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: 800;
   color: var(--color-primary);
+  white-space: nowrap !important;
+  word-break: keep-all;
 }
 
 .stat-mini-label {

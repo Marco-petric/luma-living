@@ -267,7 +267,7 @@ function initRoiCalculator() {
 
     // Render Outputs
     if (revenueOut) revenueOut.textContent = formatCHF(totalLogisRevenue);
-    if (nightsOut) nightsOut.textContent = `${nightsPerUnit} × ${units} Einheit${units > 1 ? 'en' : ''}`;
+    if (nightsOut) nightsOut.textContent = `${nightsPerUnit}\u00A0×\u00A0${units}\u00A0Einheit${units > 1 ? 'en' : ''}`;
     if (costsOut) costsOut.textContent = `−\u00A0${formatCHF(totalOperatingCosts)}`;
     if (feeOut) feeOut.textContent = `−\u00A0${formatCHF(lumaFee)}`;
     if (netOut) netOut.textContent = formatCHF(netResult);
