@@ -18,23 +18,6 @@
   
   <!-- Custom Stylesheet (Sharp Swiss Architectural Style) -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Instant Pre-render Alternating Background Script (Zero-Flicker on Reload) -->
-  <script>
-    (function() {
-      var heroImages = [
-        'assets/hero-chalet-1.jpg',
-        'assets/hero-chalet-2.jpg'
-      ];
-      var stored = localStorage.getItem('lumaliving_hero_img_idx');
-      var nextIdx = 0;
-      if (stored !== null) {
-        nextIdx = (parseInt(stored, 10) + 1) % heroImages.length;
-      }
-      localStorage.setItem('lumaliving_hero_img_idx', nextIdx.toString());
-      window.__LUMA_HERO_IMG__ = heroImages[nextIdx];
-    })();
-  </script>
 </head>
 <body>
 
@@ -43,16 +26,9 @@
        ========================================================================== -->
   <section class="editorial-hero" id="hero">
     
-    <!-- Fullscreen Alternating Background (B&W to Color Transformation) -->
-    <img id="hero-dynamic-image" class="hero-bg-media" src="assets/hero-chalet-1.jpg" alt="Schweizer Tiny House & Chalet Portfolio Innerschweiz" loading="eager">
+    <!-- Fullscreen Hero Background (Dreieck-Chalet mit B&W to Color Transformation) -->
+    <img id="hero-dynamic-image" class="hero-bg-media" src="assets/hero-chalet-1.jpg" alt="LUMA LIVING Design Tiny House Innerschweiz" loading="eager">
     <div class="hero-scrim-layer" aria-hidden="true"></div>
-
-    <!-- Apply chosen alternating image immediately before render -->
-    <script>
-      if (window.__LUMA_HERO_IMG__) {
-        document.getElementById('hero-dynamic-image').src = window.__LUMA_HERO_IMG__;
-      }
-    </script>
 
     <!-- 1. TOP BAR: UNIFIED HEADER WITH TRANSPARENT WHITE LOGO LOCKUP -->
     <header class="hero-top-bar">
@@ -421,7 +397,6 @@
               <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Anzahl Einheiten</span>
-                  <span class="calc-control-badge" id="calc-units-badge">3 Einheiten</span>
                 </div>
                 <div class="calc-input-slider-row">
                   <div class="calc-range-wrapper">
@@ -438,7 +413,7 @@
               <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Auslastung im Jahr</span>
-                  <span class="calc-control-badge" id="calc-occupancy-badge">55 % (201 Nächte)</span>
+                  <span class="calc-control-badge" id="calc-occupancy-badge">201 Nächte / Jahr</span>
                 </div>
                 <div class="calc-input-slider-row">
                   <div class="calc-range-wrapper">
@@ -455,7 +430,6 @@
               <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Preis pro Nacht (ADR)</span>
-                  <span class="calc-control-badge" id="calc-adr-badge">CHF 235</span>
                 </div>
                 <div class="calc-input-slider-row">
                   <div class="calc-range-wrapper">
@@ -472,7 +446,6 @@
               <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Ihre Investition pro Einheit</span>
-                  <span class="calc-control-badge" id="calc-invest-badge">CHF 145'000</span>
                 </div>
                 <div class="calc-input-slider-row">
                   <div class="calc-range-wrapper">

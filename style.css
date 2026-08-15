@@ -1020,6 +1020,7 @@ html, body {
   -webkit-appearance: none;
   cursor: pointer;
   z-index: 2;
+  transition: background 0.1s ease;
 }
 
 .calc-range-slider::-webkit-slider-thumb {
@@ -1029,8 +1030,8 @@ html, body {
   background: var(--color-primary);
   cursor: pointer;
   border: 2px solid #FFFFFF;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: transform 0.1s ease, background 0.2s ease;
+  box-shadow: 0 2px 8px rgba(17, 24, 19, 0.35);
+  transition: transform 0.15s ease, background 0.2s ease;
 }
 
 .calc-range-slider::-webkit-slider-thumb:hover {
@@ -1044,7 +1045,7 @@ html, body {
   background: var(--color-primary);
   cursor: pointer;
   border: 2px solid #FFFFFF;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(17, 24, 19, 0.35);
 }
 
 .calc-num-input-wrap {

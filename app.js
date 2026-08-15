@@ -187,6 +187,16 @@ function initRoiCalculator() {
     return 'CHF ' + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
   };
 
+  // Active track fill color from beginning up to the thumb button
+  const updateSliderTrackFill = (slider) => {
+    if (!slider) return;
+    const min = parseFloat(slider.min) || 0;
+    const max = parseFloat(slider.max) || 100;
+    const val = parseFloat(slider.value) || min;
+    const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
+    slider.style.background = `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${pct}%, var(--border-default) ${pct}%, var(--border-default) 100%)`;
+  };
+
   const calculate = () => {
     const units = Math.max(1, Math.min(8, parseInt(unitsSlider.value, 10) || 1));
     const occPercent = Math.max(10, Math.min(100, parseInt(occSlider.value, 10) || 50));
@@ -196,20 +206,23 @@ function initRoiCalculator() {
     // Update Slider Positions & Direct Inputs
     unitsSlider.value = units;
     if (unitsInput) unitsInput.value = units;
-    if (unitsBadge) unitsBadge.textContent = `${units} Einheit${units > 1 ? 'en' : ''}`;
 
     occSlider.value = occPercent;
     if (occInput) occInput.value = occPercent;
     const nightsPerUnit = Math.round(365 * (occPercent / 100));
-    if (occBadge) occBadge.textContent = `${occPercent} % (${nightsPerUnit} Nächte)`;
+    if (occBadge) occBadge.textContent = `${nightsPerUnit} Nächte / Jahr`;
 
     adrSlider.value = adr;
     if (adrInput) adrInput.value = adr;
-    if (adrBadge) adrBadge.textContent = formatCHF(adr);
 
     investSlider.value = investPerUnit;
     if (investInput) investInput.value = investPerUnit;
-    if (investBadge) investBadge.textContent = formatCHF(investPerUnit);
+
+    // Update Color Fill from 0% to Knopf for all 4 Sliders
+    updateSliderTrackFill(unitsSlider);
+    updateSliderTrackFill(occSlider);
+    updateSliderTrackFill(adrSlider);
+    updateSliderTrackFill(investSlider);
 
     // Model Calculations
     const totalLogisRevenue = units * nightsPerUnit * adr;
