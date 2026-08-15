@@ -13,13 +13,13 @@
    - Style: STRICTLY SHARP ARCHITECTURAL PRECISION (border-radius: 0)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Editorial Pistachio & Champagne Luxury Palette */
-  --bg-main: #F4F7F3;
+  /* Clean Swiss Architectural Palette */
+  --bg-main: #FAF9F6;
   --bg-surface: #FFFFFF;
-  --bg-surface-soft: #EDF3EC;
+  --bg-surface-soft: #F5EFE6;
   --bg-dark: #111813;
   
   --text-primary: #111813;
@@ -31,7 +31,7 @@
   --color-primary-hover: #1E3725;
   --color-primary-subtle: #E4EFE2;
 
-  /* Luxury Champagne Gold / Ochre Accent Tone from Editorial Layout */
+  /* Subtle Warm Gold / Ochre Accent */
   --color-accent-gold: #B38E5D;
   --color-accent-gold-dark: #9C7748;
   --color-accent-gold-subtle: #FBF7F0;
@@ -40,8 +40,8 @@
   --border-subtle: #E2EBE0;
   --border-dark: rgba(255, 255, 255, 0.15);
 
-  --font-serif-brand: 'Playfair Display', 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
-  --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif-brand: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* STRICTLY SHARP ARCHITECTURAL CORNERS */
@@ -724,39 +724,17 @@ html, body {
   margin-bottom: 0.75rem;
 }
 
-.page-hero-heading em,
-.page-hero-heading i {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .page-hero-desc {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
-/* Typography Italic Accents (Wie im Vorlagen-Layout) */
-h1 em, h1 i,
-h2 em, h2 i,
-h3 em, h3 i,
-.lead-text em, .lead-text i,
-.card-headline em, .card-headline i,
-.contact-card-title em, .contact-card-title i,
-.hero-brand-title em, .hero-brand-title i,
-.hero-brand-tagline em, .hero-brand-tagline i,
-.italic-accent {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .lead-text {
   font-family: var(--font-heading);
   font-size: clamp(1.25rem, 2.2vw, 1.65rem);
-  font-weight: 400;
-  line-height: 1.45;
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--text-primary);
 }
 
@@ -768,16 +746,12 @@ h3 em, h3 i,
 .editorial-eyebrow {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 700;
   color: var(--color-accent-gold);
   margin-bottom: 0.85rem;
-  letter-spacing: 0.02em;
-}
-
-.editorial-eyebrow em,
-.editorial-eyebrow i {
-  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .editorial-headline {
