@@ -220,7 +220,7 @@ html, body {
 .header-top-nav {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1.1rem, 1.7vw, 2rem);
 }
 
 @media (min-width: 992px) {
@@ -613,7 +613,7 @@ html, body {
 
 .view-nav-links {
   display: none;
-  gap: 2rem;
+  gap: clamp(1.1rem, 1.7vw, 2rem);
 }
 
 @media (min-width: 992px) {
