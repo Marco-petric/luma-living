@@ -1356,45 +1356,6 @@ html, body {
   }
 }
 
-/* 4 Architectural Corner Plus Marks */
-.corner-plus {
-  position: absolute;
-  width: 1.25rem;
-  height: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: var(--color-primary);
-  background: #FFFFFF;
-  border: 1px solid var(--border-default);
-  line-height: 1;
-  user-select: none;
-  z-index: 10;
-}
-
-.corner-plus.top-left {
-  top: -0.625rem;
-  left: -0.625rem;
-}
-
-.corner-plus.top-right {
-  top: -0.625rem;
-  right: -0.625rem;
-}
-
-.corner-plus.bottom-left {
-  bottom: -0.625rem;
-  left: -0.625rem;
-}
-
-.corner-plus.bottom-right {
-  bottom: -0.625rem;
-  right: -0.625rem;
-}
-
 /* Left Content Column */
 .contact-card-info-col {
   padding: 3.5rem 3rem;
@@ -1657,21 +1618,26 @@ a.contact-info-value:hover {
   cursor: pointer;
 }
 
-/* Mobile Drawer */
+/* ==========================================================================
+   MOBILE DRAWER & RESPONSIVE MOBILE FIXES
+   ========================================================================== */
+
 .mobile-drawer {
   position: fixed;
   inset: 0;
   background: rgba(17, 24, 19, 0.98);
-  backdrop-filter: blur(20px);
-  padding: 2.5rem 2rem;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.35s ease;
-  z-index: 999;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  z-index: 99999;
+  overflow-y: auto;
 }
 
 .mobile-drawer.open {
@@ -1680,10 +1646,135 @@ a.contact-info-value:hover {
   pointer-events: auto;
 }
 
-.mobile-drawer .header-nav-link {
-  font-size: 1.125rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.mobile-drawer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mobile-drawer-close {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mobile-drawer-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mobile-drawer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-drawer-link {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
   text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-drawer-link:hover,
+.mobile-drawer-link.active {
+  color: #FFFFFF;
+  padding-left: 0.5rem;
+}
+
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .hero-brand-statement {
+    top: 14%;
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .hero-brand-title {
+    font-size: clamp(2.25rem, 10vw, 3.25rem);
+  }
+
+  .hero-brand-tagline {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .hero-bottom-stage {
+    padding: 0 1.25rem 1.5rem 1.25rem;
+  }
+
+  .hero-floating-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content-box {
+    padding: 2rem 1.25rem;
+    width: 100%;
+    margin: 0;
+  }
+
+  .legal-content-box h1 {
+    font-size: 1.75rem !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .legal-content-box h2 {
+    font-size: 1.25rem !important;
+    word-break: break-word;
+  }
+
+  .page-title-hero {
+    min-height: 240px;
+    height: 34vh;
+    padding: 2rem 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-hero-heading {
+    font-size: 1.75rem;
+    word-break: break-word;
+  }
+
+  .page-hero-desc {
+    font-size: 0.9375rem;
+  }
+
+  .contact-card-info-col {
+    padding: 2rem 1.25rem;
+  }
+
+  .contact-card-title {
+    font-size: 1.75rem;
+    word-break: break-word;
+  }
+
+  .contact-card-form-col {
+    padding: 2rem 1.25rem;
+  }
 }

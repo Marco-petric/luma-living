@@ -102,18 +102,29 @@
 
   </section>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (Ohne Impressum/Datenschutz, sauber schliessbar) -->
   <div class="mobile-drawer" id="mobile-drawer">
-    <button type="button" class="header-nav-link" data-open-view="hero">Startseite</button>
-    <button type="button" class="header-nav-link" data-open-view="development">Projektentwicklung & Markt</button>
-    <button type="button" class="header-nav-link" data-open-view="cohosting">Betreibermodell & Rechner</button>
-    <button type="button" class="header-nav-link" data-open-view="team">Team (2 Gründer)</button>
-    <button type="button" class="header-nav-link" data-open-view="faq">Baurecht & FAQ</button>
-    <button type="button" class="header-nav-link" data-open-view="contact">Kontakt</button>
-    <button type="button" class="header-nav-link" data-open-view="impressum">Impressum</button>
-    <button type="button" class="header-nav-link" data-open-view="datenschutz">Datenschutz</button>
-    <div style="margin-top: auto;">
-      <button class="btn-editorial-primary" style="width: 100%;" data-open-view="contact">Gespräch anfragen</button>
+    <div class="mobile-drawer-top">
+      <div class="brand-logo-transparent" data-open-view="hero">
+        <div class="brand-mark-ll">
+          <span class="ll-1">L</span><span class="ll-2">L</span>
+        </div>
+        <span class="brand-name-text">LUMA LIVING</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Menü schliessen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-drawer-menu">
+      <button type="button" class="mobile-drawer-link" data-open-view="hero">Startseite</button>
+      <button type="button" class="mobile-drawer-link" data-open-view="development">Projektentwicklung</button>
+      <button type="button" class="mobile-drawer-link" data-open-view="cohosting">Betreibermodell</button>
+      <button type="button" class="mobile-drawer-link" data-open-view="team">Team</button>
+      <button type="button" class="mobile-drawer-link" data-open-view="faq">Baurecht &amp; FAQ</button>
+      <button type="button" class="mobile-drawer-link" data-open-view="contact">Kontakt</button>
+    </div>
+    <div style="margin-top: auto; padding-top: 1.5rem;">
+      <button class="btn-editorial-primary" style="width: 100%;" data-open-view="contact">Projektgespräch vereinbaren</button>
     </div>
   </div>
 
@@ -836,14 +847,8 @@
     <div class="view-content-wrapper" style="padding-top: 4rem;">
       <div class="container">
         
-        <!-- MODERN CONTACT CARD COMPONENT (WITH ARCHITECTURAL CORNER PLUS MARKS) -->
+        <!-- MODERN CONTACT CARD COMPONENT -->
         <div class="contact-card-modern">
-          <!-- 4 Architectural Corner Plus Crosshairs -->
-          <span class="corner-plus top-left" aria-hidden="true">+</span>
-          <span class="corner-plus top-right" aria-hidden="true">+</span>
-          <span class="corner-plus bottom-left" aria-hidden="true">+</span>
-          <span class="corner-plus bottom-right" aria-hidden="true">+</span>
-
           <!-- Left Info Column -->
           <div class="contact-card-info-col">
             <div>

@@ -25,8 +25,7 @@ function initSectionViewRouter() {
     // Close mobile drawer if open
     if (drawer) {
       drawer.classList.remove('open');
-      const toggle = document.querySelector('.mobile-nav-toggle');
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      document.querySelectorAll('.mobile-nav-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
     }
 
     if (!targetViewId || targetViewId === 'hero') {
@@ -62,7 +61,7 @@ function initSectionViewRouter() {
 
   // Update navigation underline indicators
   const updateNavHighlight = (activeId) => {
-    document.querySelectorAll('.header-nav-link, .editorial-nav-link, .view-nav-btn').forEach(btn => {
+    document.querySelectorAll('.header-nav-link, .editorial-nav-link, .view-nav-btn, .mobile-drawer-link').forEach(btn => {
       const view = btn.getAttribute('data-open-view');
       if (view === activeId) {
         btn.classList.add('active');
@@ -104,16 +103,49 @@ function initSectionViewRouter() {
 }
 
 /* ==========================================================================
-   2. MOBILE DRAWER MENU
+   2. MOBILE DRAWER MENU (ALLE TOGGLES & UNTERSEITEN UNTERSTÜTZT)
    ========================================================================== */
 function initMobileMenu() {
-  const toggle = document.querySelector('.mobile-nav-toggle');
+  const toggles = document.querySelectorAll('.mobile-nav-toggle');
   const drawer = document.getElementById('mobile-drawer');
-  if (!toggle || !drawer) return;
+  const closeBtn = document.getElementById('mobile-drawer-close');
+  const drawerLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-drawer button');
+  if (!drawer) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = drawer.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
+  const openDrawer = () => {
+    drawer.classList.add('open');
+    toggles.forEach(t => t.setAttribute('aria-expanded', 'true'));
+  };
+
+  const closeDrawer = () => {
+    drawer.classList.remove('open');
+    toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+  };
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
+  }
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
   });
 }
 
