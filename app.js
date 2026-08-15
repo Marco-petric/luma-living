@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initFaqAccordion();
   initRoiCalculator();
-  initPitchGenerator();
+  initDirectContactForm();
 });
 
 /* ==========================================================================
@@ -321,9 +321,9 @@ function initRoiCalculator() {
 }
 
 /* ==========================================================================
-   5. DIREKTER EMAIL-VERSAND (KEIN EIGENES MAIL-PROGRAMM NÖTIG)
+   5. DIREKTER EMAIL-VERSAND (AJAX CONTACT FORM)
    ========================================================================== */
-function initPitchGenerator() {
+function initDirectContactForm() {
   const directForm = document.getElementById('direct-contact-form');
   const submitBtn = document.getElementById('contact-submit-btn');
   const statusBox = document.getElementById('form-status-msg');
