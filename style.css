@@ -1517,6 +1517,262 @@ html, body {
   padding-bottom: 1.25rem;
 }
 
+/* ==========================================================================
+   MODERN CONTACT CARD COMPONENT & SWISS CORPORATE INFO
+   ========================================================================== */
+
+.contact-card-modern {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 72rem;
+  margin: 0 auto;
+  gap: 3rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 992px) {
+  .contact-card-modern {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4.5rem;
+  }
+}
+
+/* Left Content Column */
+.contact-card-info-col {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 32rem;
+}
+
+/* Company Info Block (Klassische Schweizer Firmeninformationen) */
+.company-info-block {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.company-title-text {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.company-subtitle-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.company-address-lines {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.company-contact-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.company-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.company-icon {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.company-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.company-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Right Form Column */
+.contact-card-form-col {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(2rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form-inner {
+  width: 100%;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.form-input-modern {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input-modern:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-subtle);
+}
+
+.form-status-box {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid;
+}
+
+.form-status-box.success {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form-status-box.error {
+  background: #ffebee;
+  color: #c62828;
+  border-color: #ef9a9a;
+}
+
+/* ==========================================================================
+   UNIVERSAL HIGH-END SWISS BUTTONS
+   ========================================================================== */
+
+.btn-editorial-primary,
+.btn-primary,
+button.btn-editorial-primary,
+a.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.05rem 2.25rem;
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(45, 80, 54, 0.18);
+}
+
+.btn-editorial-primary:hover,
+.btn-primary:hover,
+button.btn-editorial-primary:hover,
+a.btn-editorial-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 80, 54, 0.28);
+}
+
+.btn-editorial-primary:active {
+  transform: translateY(0);
+}
+
+/* Legal Page Content Box */
+.legal-content-box {
+  background: transparent;
+  border: none;
+  padding: 2rem 0;
+  max-width: 56rem;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.legal-content-box h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.legal-content-box p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
 /* Modal Controller */
 .modal-overlay {
   position: fixed;
