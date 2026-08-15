@@ -1854,6 +1854,43 @@ a.btn-editorial-primary:hover {
   transform: translateY(0);
 }
 
+/* Secondary & Outline Editorial Buttons */
+.btn-editorial-secondary,
+button.btn-editorial-secondary,
+a.btn-editorial-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+  border: 1.5px solid var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-editorial-secondary:hover,
+button.btn-editorial-secondary:hover,
+a.btn-editorial-secondary:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(45, 80, 54, 0.22);
+}
+
+.btn-editorial-secondary:active {
+  transform: translateY(0);
+}
+
 /* Legal Page Content Box */
 .legal-content-box {
   background: transparent;
