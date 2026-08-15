@@ -397,52 +397,93 @@
              INTERAKTIVER ERTRAGSRECHNER AUS DEM BUSINESSPLAN
              ========================================================================== -->
         <div class="roi-calculator-box" id="calculator">
-          <span class="card-tag">ERTRAGSRECHNER OBWALDEN</span>
-          <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-top: 0.5rem;">Was eine Einheit auf Ihrem Areal erwirtschaftet.</h2>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="card-tag">ERTRAGSRECHNER OBWALDEN</span>
+              <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-top: 0.5rem;">Was eine Einheit auf Ihrem Areal erwirtschaftet.</h2>
+            </div>
+            <button type="button" id="calc-reset-btn" class="btn-calc-reset" title="Standardwerte wiederherstellen">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              <span>Reset</span>
+            </button>
+          </div>
+          
           <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.65; margin-top: 0.5rem;">
-            Verschieben Sie die Regler und sehen Sie, was unter unserem Betreibermodell bei Ihnen ankommt. Die Vorgaben stammen aus unserem Finanzmodell — die Preise sind an tatsächlichen Obwaldner Objekten gemessen, nicht geschätzt.
+            Verschieben Sie die Regler oder tippen Sie Werte direkt ein, um zu sehen, was unter unserem Betreibermodell bei Ihnen ankommt. Die Vorgaben stammen aus unserem Finanzmodell — die Preise sind an tatsächlichen Obwaldner Objekten gemessen, nicht geschätzt.
           </p>
 
           <div class="calc-grid">
             
-            <!-- Controls -->
+            <!-- Controls (Modern Slider with Synchronized Direct Numeric Input) -->
             <div class="calc-controls">
               
               <!-- 1. Anzahl Einheiten -->
-              <div class="calc-control-group">
+              <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Anzahl Einheiten</span>
-                  <span class="calc-control-value" id="calc-units-display">3</span>
+                  <span class="calc-control-badge" id="calc-units-badge">3 Einheiten</span>
                 </div>
-                <input type="range" id="calc-units" class="calc-range-slider" min="1" max="8" step="1" value="3">
+                <div class="calc-input-slider-row">
+                  <div class="calc-range-wrapper">
+                    <input type="range" id="calc-units" class="calc-range-slider" min="1" max="8" step="1" value="3" aria-label="Anzahl Einheiten">
+                  </div>
+                  <div class="calc-num-input-wrap">
+                    <input type="number" id="calc-units-input" class="calc-direct-input" min="1" max="8" step="1" value="3" aria-label="Einheiten eingeben">
+                    <span class="calc-input-unit">Stk</span>
+                  </div>
+                </div>
               </div>
 
               <!-- 2. Auslastung im Jahr -->
-              <div class="calc-control-group">
+              <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Auslastung im Jahr</span>
-                  <span class="calc-control-value" id="calc-occupancy-display">55 %</span>
+                  <span class="calc-control-badge" id="calc-occupancy-badge">55 % (201 Nächte)</span>
                 </div>
-                <input type="range" id="calc-occupancy" class="calc-range-slider" min="30" max="85" step="1" value="55">
+                <div class="calc-input-slider-row">
+                  <div class="calc-range-wrapper">
+                    <input type="range" id="calc-occupancy" class="calc-range-slider" min="30" max="85" step="1" value="55" aria-label="Auslastung im Jahr">
+                  </div>
+                  <div class="calc-num-input-wrap">
+                    <input type="number" id="calc-occupancy-input" class="calc-direct-input" min="30" max="85" step="1" value="55" aria-label="Auslastung in Prozent eingeben">
+                    <span class="calc-input-unit">%</span>
+                  </div>
+                </div>
               </div>
 
               <!-- 3. Preis pro Nacht -->
-              <div class="calc-control-group">
+              <div class="calc-slider-input-item">
                 <div class="calc-control-header">
-                  <span class="calc-control-label">Preis pro Nacht</span>
-                  <span class="calc-control-value" id="calc-adr-display">CHF 235</span>
+                  <span class="calc-control-label">Preis pro Nacht (ADR)</span>
+                  <span class="calc-control-badge" id="calc-adr-badge">CHF 235</span>
                 </div>
-                <input type="range" id="calc-adr" class="calc-range-slider" min="180" max="350" step="5" value="235">
+                <div class="calc-input-slider-row">
+                  <div class="calc-range-wrapper">
+                    <input type="range" id="calc-adr" class="calc-range-slider" min="180" max="350" step="5" value="235" aria-label="Preis pro Nacht">
+                  </div>
+                  <div class="calc-num-input-wrap">
+                    <input type="number" id="calc-adr-input" class="calc-direct-input" min="180" max="350" step="5" value="235" aria-label="Preis pro Nacht eingeben">
+                    <span class="calc-input-unit">CHF</span>
+                  </div>
+                </div>
               </div>
 
               <!-- 4. Ihre Investition pro Einheit -->
-              <div class="calc-control-group">
+              <div class="calc-slider-input-item">
                 <div class="calc-control-header">
                   <span class="calc-control-label">Ihre Investition pro Einheit</span>
-                  <span class="calc-control-value" id="calc-invest-display">CHF 145'000</span>
+                  <span class="calc-control-badge" id="calc-invest-badge">CHF 145'000</span>
                 </div>
-                <input type="range" id="calc-invest" class="calc-range-slider" min="120000" max="220000" step="5000" value="145000">
-                <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.4;">
+                <div class="calc-input-slider-row">
+                  <div class="calc-range-wrapper">
+                    <input type="range" id="calc-invest" class="calc-range-slider" min="120000" max="220000" step="5000" value="145000" aria-label="Investition pro Einheit">
+                  </div>
+                  <div class="calc-num-input-wrap" style="width: 7.25rem;">
+                    <input type="number" id="calc-invest-input" class="calc-direct-input" min="120000" max="220000" step="5000" value="145000" aria-label="Investition pro Einheit eingeben">
+                    <span class="calc-input-unit">CHF</span>
+                  </div>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.4; display: block;">
                   Auf einem bereits erschlossenen Areal liegt die Investition pro Einheit typischerweise tiefer als auf unerschlossenem Land — der Grund, weshalb wir gezielt bestehende Standorte suchen.
                 </span>
               </div>
@@ -623,7 +664,7 @@
       
       <!-- HERO TITLE BANNER: TEAM WORKPLACE PHOTO -->
       <div class="page-title-hero">
-        <img class="page-hero-image" src="assets/title-team.jpg" alt="LUMA LIVING Gründerteam bei der Arbeit">
+        <img class="page-hero-image" src="assets/title-team.png" alt="LUMA LIVING Gründerteam bei der Arbeit">
         <div class="page-hero-scrim"></div>
         <div class="container">
           <div class="page-hero-content">

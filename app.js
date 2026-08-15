@@ -146,7 +146,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   4. INTERAKTIVER ERTRAGSRECHNER (MATCHING EXACT BUSINESSPLAN MODEL)
+   4. INTERAKTIVER ERTRAGSRECHNER (MODERN SLIDER WITH INPUT & RESET)
    ========================================================================== */
 function initRoiCalculator() {
   const unitsSlider = document.getElementById('calc-units');
@@ -154,12 +154,15 @@ function initRoiCalculator() {
   const adrSlider = document.getElementById('calc-adr');
   const investSlider = document.getElementById('calc-invest');
 
-  if (!unitsSlider || !occSlider || !adrSlider || !investSlider) return;
+  const unitsInput = document.getElementById('calc-units-input');
+  const occInput = document.getElementById('calc-occupancy-input');
+  const adrInput = document.getElementById('calc-adr-input');
+  const investInput = document.getElementById('calc-invest-input');
 
-  const unitsDisplay = document.getElementById('calc-units-display');
-  const occDisplay = document.getElementById('calc-occupancy-display');
-  const adrDisplay = document.getElementById('calc-adr-display');
-  const investDisplay = document.getElementById('calc-invest-display');
+  const unitsBadge = document.getElementById('calc-units-badge');
+  const occBadge = document.getElementById('calc-occupancy-badge');
+  const adrBadge = document.getElementById('calc-adr-badge');
+  const investBadge = document.getElementById('calc-invest-badge');
 
   const revenueOut = document.getElementById('calc-revenue-out');
   const nightsOut = document.getElementById('calc-nights-out');
@@ -167,6 +170,17 @@ function initRoiCalculator() {
   const feeOut = document.getElementById('calc-fee-out');
   const netOut = document.getElementById('calc-net-out');
   const roiOut = document.getElementById('calc-roi-out');
+  const resetBtn = document.getElementById('calc-reset-btn');
+
+  if (!unitsSlider || !occSlider || !adrSlider || !investSlider) return;
+
+  // Defaults
+  const defaults = {
+    units: 3,
+    occupancy: 55,
+    adr: 235,
+    invest: 145000
+  };
 
   // Format CHF with Swiss apostrophe
   const formatCHF = (num) => {
@@ -174,33 +188,35 @@ function initRoiCalculator() {
   };
 
   const calculate = () => {
-    const units = parseInt(unitsSlider.value, 10);
-    const occPercent = parseInt(occSlider.value, 10);
-    const adr = parseInt(adrSlider.value, 10);
-    const investPerUnit = parseInt(investSlider.value, 10);
+    const units = Math.max(1, Math.min(8, parseInt(unitsSlider.value, 10) || 1));
+    const occPercent = Math.max(10, Math.min(100, parseInt(occSlider.value, 10) || 50));
+    const adr = Math.max(100, Math.min(1000, parseInt(adrSlider.value, 10) || 200));
+    const investPerUnit = Math.max(50000, Math.min(500000, parseInt(investSlider.value, 10) || 145000));
 
-    // Update Slider Displays
-    if (unitsDisplay) unitsDisplay.textContent = units.toString();
-    if (occDisplay) occDisplay.textContent = `${occPercent} %`;
-    if (adrDisplay) adrDisplay.textContent = formatCHF(adr);
-    if (investDisplay) investDisplay.textContent = formatCHF(investPerUnit);
+    // Update Slider Positions & Direct Inputs
+    unitsSlider.value = units;
+    if (unitsInput) unitsInput.value = units;
+    if (unitsBadge) unitsBadge.textContent = `${units} Einheit${units > 1 ? 'en' : ''}`;
 
-    // Model Calculations: 365 days / year
+    occSlider.value = occPercent;
+    if (occInput) occInput.value = occPercent;
     const nightsPerUnit = Math.round(365 * (occPercent / 100));
-    const totalLogisRevenue = units * nightsPerUnit * adr;
+    if (occBadge) occBadge.textContent = `${occPercent} % (${nightsPerUnit} Nächte)`;
 
-    // Operating costs per unit (Platform fees, marketing, energy, maintenance reserve)
-    // Formula calibrated to business plan base: 3 units @ 55% occ = CHF 52'350 (CHF 17'450 / unit)
+    adrSlider.value = adr;
+    if (adrInput) adrInput.value = adr;
+    if (adrBadge) adrBadge.textContent = formatCHF(adr);
+
+    investSlider.value = investPerUnit;
+    if (investInput) investInput.value = investPerUnit;
+    if (investBadge) investBadge.textContent = formatCHF(investPerUnit);
+
+    // Model Calculations
+    const totalLogisRevenue = units * nightsPerUnit * adr;
     const baseUnitCosts = 17450 * (adr / 235) * (occPercent / 55);
     const totalOperatingCosts = Math.round(units * baseUnitCosts);
-
-    // Luma Living fee: 25% of logis revenue
     const lumaFee = Math.round(totalLogisRevenue * 0.25);
-
-    // Net Result for Landowner
     const netResult = totalLogisRevenue - totalOperatingCosts - lumaFee;
-
-    // Total Investment & ROI
     const totalInvestment = units * investPerUnit;
     const roiPercentage = totalInvestment > 0 ? (netResult / totalInvestment) * 100 : 0;
 
@@ -213,9 +229,47 @@ function initRoiCalculator() {
     if (roiOut) roiOut.textContent = `${roiPercentage.toFixed(1).replace('.', ',')} %`;
   };
 
+  // Bind Slider Events
   [unitsSlider, occSlider, adrSlider, investSlider].forEach(slider => {
     slider.addEventListener('input', calculate);
   });
+
+  // Bind Direct Number Input Events
+  if (unitsInput) {
+    unitsInput.addEventListener('input', (e) => {
+      unitsSlider.value = e.target.value;
+      calculate();
+    });
+  }
+  if (occInput) {
+    occInput.addEventListener('input', (e) => {
+      occSlider.value = e.target.value;
+      calculate();
+    });
+  }
+  if (adrInput) {
+    adrInput.addEventListener('input', (e) => {
+      adrSlider.value = e.target.value;
+      calculate();
+    });
+  }
+  if (investInput) {
+    investInput.addEventListener('input', (e) => {
+      investSlider.value = e.target.value;
+      calculate();
+    });
+  }
+
+  // Bind Reset Button
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      unitsSlider.value = defaults.units;
+      occSlider.value = defaults.occupancy;
+      adrSlider.value = defaults.adr;
+      investSlider.value = defaults.invest;
+      calculate();
+    });
+  }
 
   // Initial Calculation Run
   calculate();
