@@ -1202,17 +1202,27 @@ html, body {
 .calc-output-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.65rem 0;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-subtle);
   font-size: 0.9375rem;
   color: var(--text-secondary);
+}
+
+.calc-output-row span {
+  flex: 1;
+  line-height: 1.45;
 }
 
 .calc-output-row .val {
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text-primary);
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .calc-output-row.highlight-row {
@@ -1223,11 +1233,13 @@ html, body {
   font-size: 1.125rem;
   font-weight: 800;
   color: var(--text-primary);
+  align-items: baseline;
 }
 
 .calc-output-row.highlight-row .val {
   color: var(--color-primary);
   font-size: 1.5rem;
+  white-space: nowrap !important;
 }
 
 .calc-roi-badge {

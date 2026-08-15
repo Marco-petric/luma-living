@@ -214,9 +214,9 @@ function initRoiCalculator() {
     invest: 145000
   };
 
-  // Format CHF with Swiss apostrophe
+  // Format CHF with Swiss apostrophe and non-breaking space
   const formatCHF = (num) => {
-    return 'CHF ' + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+    return 'CHF\u00A0' + Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
   };
 
   // Active track fill color from beginning up to the thumb button
@@ -268,8 +268,8 @@ function initRoiCalculator() {
     // Render Outputs
     if (revenueOut) revenueOut.textContent = formatCHF(totalLogisRevenue);
     if (nightsOut) nightsOut.textContent = `${nightsPerUnit} × ${units} Einheit${units > 1 ? 'en' : ''}`;
-    if (costsOut) costsOut.textContent = `− ${formatCHF(totalOperatingCosts)}`;
-    if (feeOut) feeOut.textContent = `− ${formatCHF(lumaFee)}`;
+    if (costsOut) costsOut.textContent = `−\u00A0${formatCHF(totalOperatingCosts)}`;
+    if (feeOut) feeOut.textContent = `−\u00A0${formatCHF(lumaFee)}`;
     if (netOut) netOut.textContent = formatCHF(netResult);
     if (roiOut) roiOut.textContent = `${roiPercentage.toFixed(1).replace('.', ',')} %`;
   };
