@@ -1701,34 +1701,62 @@ a.contact-info-value:hover {
 
 /* --- RESPONSIVE MOBILE FIXES --- */
 @media (max-width: 768px) {
+  .editorial-hero {
+    height: 100vh;
+    height: 100dvh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .container {
     padding: 0 1.25rem;
   }
 
   .hero-brand-statement {
-    top: 14%;
+    top: 9%;
     left: 1.25rem;
     right: 1.25rem;
   }
 
   .hero-brand-title {
-    font-size: clamp(2.25rem, 10vw, 3.25rem);
+    font-size: clamp(2.1rem, 9.5vw, 3rem);
+    margin-bottom: 0.35rem;
   }
 
   .hero-brand-tagline {
     font-size: 0.75rem;
-    line-height: 1.4;
+    line-height: 1.35;
   }
 
   .hero-bottom-stage {
-    padding: 0 1.25rem 1.5rem 1.25rem;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    margin-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    gap: 0.5rem;
   }
 
   .hero-floating-card {
     width: 100%;
     max-width: 100%;
-    padding: 1.25rem 1.25rem;
-    margin-bottom: 0.5rem;
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 0.25rem;
+    box-sizing: border-box;
+  }
+
+  .hero-floating-card .card-tag {
+    font-size: 0.625rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-floating-card .card-headline {
+    font-size: 0.8125rem;
+    line-height: 1.38;
+  }
+
+  .hero-bottom-legal {
+    margin-left: 0;
+    padding-top: 0.15rem;
   }
 
   .legal-content-box {
