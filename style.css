@@ -1594,12 +1594,14 @@ html, body {
 }
 
 .team-role {
-  font-size: 0.8125rem;
+  font-size: clamp(0.72rem, 1.1vw, 0.8125rem);
   font-weight: 700;
   color: var(--color-accent-gold);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
 }
 
 .team-bio {
