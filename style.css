@@ -342,7 +342,7 @@ html, body {
   margin-bottom: 0.6rem;
 }
 
-/* Slogan: Dezent, kleiner und weniger fett */
+/* Slogan: Dezent, elegant, klickbar für Nachhaltigkeit */
 .hero-brand-tagline {
   font-family: var(--font-heading);
   font-size: 0.8125rem;
@@ -352,7 +352,23 @@ html, body {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.95);
   margin-top: 0.35rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.hero-brand-tagline:hover,
+.hero-brand-tagline:focus-visible {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 /* --- BOTTOM STAGE: WHITE CARD (SLIDE-UP ENTRANCE) & LEGAL LINKS --- */
